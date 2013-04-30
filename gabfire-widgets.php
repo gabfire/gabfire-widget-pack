@@ -46,3 +46,4 @@ if ($options['search'] == 1) 	 	{	require_once(SMART_WIDGETS_DIR . '/widget-sear
 if ($options['share'] == 1) 		{	require_once(SMART_WIDGETS_DIR . '/widget-shareitems.php');		}
 if ($options['social'] == 1) 		{	require_once(SMART_WIDGETS_DIR . '/widget-social.php');			}
 if ($options['text_widget'] == 1) 	{	require_once(SMART_WIDGETS_DIR . '/widget-text.php');			}
+if ($options['popular_random'] == 1) 	{	require_once(SMART_WIDGETS_DIR . '/widget-popular_random_recent.php');			}

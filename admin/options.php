@@ -309,7 +309,21 @@ function gab_render_form() {
 					</label>
 					<p><?php _e('Get connected with your visitors and let them know where they could find you on social platforms','gabfire-widget-pack'); ?></p>
 				</div>
-												
+
+				<?php if($options['popular_random'] == 1) { $state = "active"; } else { $state = "deactive"; } ?>
+				<div class="gab_option_box gab_right <?php echo $state; ?>">					
+					<h3><?php _e('Popular/Random Entries','gabfire-widget-pack'); ?></h3>
+					
+					<label class="widget_trigger">
+						<input  type="checkbox" name="gab_options[popular_random]" value="1" <?php if (isset($options['popular_random'])) { checked('1', $options['popular_random']); } ?> />
+						<span class="gab_switcher">
+							<span class="gab_switcheron"><?php _e('ON','gabfire-widget-pack'); ?></span>
+							<span class="gab_switcheroff"><?php _e('OFF','gabfire-widget-pack'); ?></span>
+							<span class="gab_switcherblock"></span>
+						</span>
+					</label>
+					<p><?php _e('Gabfire Random/Popular/Recent Posts: Display random, recent or most popular posts.','gabfire-widget-pack'); ?></p>
+				</div>											
 				<div class="clearfix"></div>
 				<div class="gabfire_options_submit">
 					<p class="activate_widgets_notice"><?php _e('Activate the widgets you wish to enable and click <strong>Save Changes</strong>','gabfire-widget-pack'); ?></p>
