@@ -200,7 +200,7 @@ function gab_render_form() {
 				<div class="clearfix"></div>
 				
 				<?php if($options['text_widget'] == 1) { $state = "active"; } else { $state = "deactive"; } ?>
-				<div class="gab_option_box gab_right <?php echo $state; ?>">					
+				<div class="gab_option_box gab_left <?php echo $state; ?>">					
 					<h3><?php _e('Gabfire Text+ Widget','gabfire-widget-pack'); ?></h3>
 					
 					<label class="widget_trigger">

@@ -22,24 +22,16 @@ class gab_custom_query extends WP_Widget {
 		
             if ( $title ) {
 				echo $before_title;
-				if ( $c_link ) { echo '<a href="' . $c_link . '">'; }
 					echo $title;
-				if ( $c_link ) { echo '</a>'; }
 				echo $after_title;
             }
 			
-            if ( $c_image ) { 
-				if ( $c_link ) { echo '<a href="' . $c_link . '">'; }
-					echo '<img style="display:block;margin:0 0 7px;line-height:0" src="'.$c_image.'" alt="" />'; 
-				if ( $c_link ) { echo '</a>'; }
-			}
             $count = 0;
 			global $do_not_duplicate, $post, $page;
 			$args = array(
 			  'post__not_in'=>$do_not_duplicate,
 			  'posts_per_page' => $postnr,
-			  'orderby' => $post_order,
-			  'cat' => $postids
+			  'orderby' => $post_order
 			);	
 
             $gab_query = new WP_Query();$gab_query->query($args); 

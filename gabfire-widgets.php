@@ -4,7 +4,7 @@
 	Plugin URI: http://www.gabfirethemes.com
 	Description: This plugin adds a bundle of most commonly used widgets to your site.
 	Author: Gabfire Themes
-	Version: 1.0
+	Version: 1.0.1
 	Author URI: http://www.gabfirethemes.com
 	
     Copyright 2013 Gabfire Themes (email : info@gabfire.com)
