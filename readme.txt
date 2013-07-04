@@ -3,7 +3,7 @@ Contributors: gabfire
 Tags: social icons, share post, text widget, about us, author badge, ajax tabs, Feedburner email subscribe, related posts, fickr images, search, popular entries, random entries, recent entries, gabfire themes
 Requires at least: 3.4
 Tested up to: 3.5.1
-Stable tag: 1.0.1
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,9 +12,6 @@ The Gabfire Widget Pack contains 12 useful widgets to extend your WordPress site
 == Description ==
 
 The Gabfire Widget Pack is a free plugin for the WordPress community. Below are the steps required to install, activate, and configure the Gabfire Widget Pack.
-
-Github Project Page
-https://github.com/gabfire/gabfire-widget-pack
 
 = Widget: Archive Search =
 Give your users the option to search to their heart's content. This powerful widget provides 3 methods to search:
@@ -90,20 +87,20 @@ You can install the Gabfire Widget Pack from your WordPress Dashboard or manuall
 
 = From WordPress Dashboard =
 
-* Navigate to 'Plugins -> Add New' from your WordPress dashboard. 
-* Search for `Gabfire Widget Pack` and install it. 
-* Activate the plugin from Plugins menu.
-* Enable the widgets you wish to activate from Appearance -> Gabfire Widget Pack
-* Add any widget to your widget zone from Appearance -> Widgets and configure the widget options.
+# Navigate to 'Plugins -> Add New' from your WordPress dashboard. 
+# Search for `Gabfire Widget Pack` and install it. 
+# Activate the plugin from Plugins menu.
+# Enable the widgets you wish to activate from Appearance -> Gabfire Widget Pack
+# Add any widget to your widget zone from Appearance -> Widgets and configure the widget options.
 
 = Manual Installation =
 
-* Download `gabfire-widget-pack.zip`
-* Unzip
-* Upload the `gabfire-widget-pack` folder to your `/wp-content/plugins` directory (do not rename the folder)
-* Activate the plugin from Plugins menu.
-* Enable the widgets you wish to activate from 'Appearance -> Gabfire Widget Pack'.
-* Add any widget to your widget zone from 'Appearance -> Widgets' and configure the widget options.
+# Download `gabfire-widget-pack.zip`
+# Unzip
+# Upload the `gabfire-widget-pack` folder to your `/wp-content/plugins` directory (do not rename the folder)
+# Activate the plugin from Plugins menu.
+# Enable the widgets you wish to activate from 'Appearance -> Gabfire Widget Pack'.
+# Add any widget to your widget zone from 'Appearance -> Widgets' and configure the widget options.
 
 == Screenshots ==
 
@@ -121,6 +118,11 @@ You can install the Gabfire Widget Pack from your WordPress Dashboard or manuall
 12. Widget: Social Icons
 13. Widget: Share Items
 == Changelog ==
+
+= 1.1 =
+* New Widget: Latest Tweets by Hashtag
+* New Widget: Contact Us
+* Widget Update: About widget - custom image display support
 
 = 1.0.1 =
 * Options panel alignment fix

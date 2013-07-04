@@ -4,7 +4,7 @@
 	Plugin URI: http://www.gabfirethemes.com
 	Description: This plugin adds a bundle of most commonly used widgets to your site.
 	Author: Gabfire Themes
-	Version: 1.0.1
+	Version: 1.1
 	Author URI: http://www.gabfirethemes.com
 	
     Copyright 2013 Gabfire Themes (email : info@gabfire.com)
@@ -36,8 +36,10 @@ require_once( SMART_WIDGETS_DIR .  '/admin/options.php' );
 $options = get_option('gab_options');
 
 if ($options['about_widget'] == 1) 	{	require_once(SMART_WIDGETS_DIR . '/widget-about.php');			}
+if ($options['contact_info'] == 1) 	{	require_once(SMART_WIDGETS_DIR . '/widget-address.php');		}
+if ($options['tweets_hashtag'] == 1){	require_once(SMART_WIDGETS_DIR . '/widget-tweets_hashtag.php');	}
 if ($options['archive_widget'] == 1){	require_once(SMART_WIDGETS_DIR . '/widget-archive.php');		}
-if ($options['ajaxtabs'] == 1) 		{	require_once(SMART_WIDGETS_DIR . '/widget-ajaxtabs.php');	}
+if ($options['ajaxtabs'] == 1) 		{	require_once(SMART_WIDGETS_DIR . '/widget-ajaxtabs.php');		}
 if ($options['authorbadge'] == 1) 	{	require_once(SMART_WIDGETS_DIR . '/widget-authorbadge.php');	}
 if ($options['feedburner'] == 1) 	{	require_once(SMART_WIDGETS_DIR . '/widget-feedburner.php');		}
 if ($options['flickrrss'] == 1) 	{	require_once(SMART_WIDGETS_DIR . '/widget-flickr.php');			}

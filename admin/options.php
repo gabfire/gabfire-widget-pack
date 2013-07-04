@@ -50,7 +50,8 @@ function gab_add_defaults() {
 						"archive_widget" => "1",
 						"authorbadge" => "1",
 						"feedburner" => "1",
-						"flickrrss" => "1"
+						"flickrrss" => "1",
+						"contact_info" => "1"
 		);
 		update_option('gab_options', $arr);
 }
@@ -120,7 +121,7 @@ function gab_render_form() {
 				</a>
 			</div>
 			<div class="header-info">
-				Gabfire Widget Pack <?php echo constant( 'GABFIRE_WIDGETS_VERSION' ); ?>
+				Gabfire Widget Pack
 			</div>
 		</div>	
 
@@ -323,8 +324,46 @@ function gab_render_form() {
 						</span>
 					</label>
 					<p><?php _e('Gabfire Random/Popular/Recent Posts: Display random, recent or most popular posts.','gabfire-widget-pack'); ?></p>
-				</div>											
+				</div>
+
+				
 				<div class="clearfix"></div>
+				
+				<?php if($options['contact_info'] == 1) { $state = "active"; } else { $state = "deactive"; } ?>
+				<div class="gab_option_box gab_left <?php echo $state; ?>">					
+					<h3><?php _e('Contact Information','gabfire-widget-pack'); ?></h3>
+					
+					<label class="widget_trigger">
+						<input  type="checkbox" name="gab_options[contact_info]" value="1" <?php if (isset($options['contact_info'])) { checked('1', $options['contact_info']); } ?> />
+						<span class="gab_switcher">
+							<span class="gab_switcheron"><?php _e('ON','gabfire-widget-pack'); ?></span>
+							<span class="gab_switcheroff"><?php _e('OFF','gabfire-widget-pack'); ?></span>
+							<span class="gab_switcherblock"></span>
+						</span>
+					</label>
+					<p><?php _e('Display company logo and adress and phone number to your visitors','gabfire-widget-pack'); ?></p>
+				</div>		
+
+				<?php if($options['tweets_hashtag'] == 1) { $state = "active"; } else { $state = "deactive"; } ?>
+				<div class="gab_option_box gab_right <?php echo $state; ?>">					
+					<h3><?php _e('Recent Tweets - Hashtag','gabfire-widget-pack'); ?></h3>
+					
+					<label class="widget_trigger">
+						<input  type="checkbox" name="gab_options[tweets_hashtag]" value="1" <?php if (isset($options['tweets_hashtag'])) { checked('1', $options['tweets_hashtag']); } ?> />
+						<span class="gab_switcher">
+							<span class="gab_switcheron"><?php _e('ON','gabfire-widget-pack'); ?></span>
+							<span class="gab_switcheroff"><?php _e('OFF','gabfire-widget-pack'); ?></span>
+							<span class="gab_switcherblock"></span>
+						</span>
+					</label>
+					<p><?php _e('Get most recent tweets based on a hashtag of your choose','gabfire-widget-pack'); ?></p>
+				</div>						
+				
+				
+				
+				
+				<div class="clearfix"></div>
+								
 				<div class="gabfire_options_submit">
 					<p class="activate_widgets_notice"><?php _e('Activate the widgets you wish to enable and click <strong>Save Changes</strong>','gabfire-widget-pack'); ?></p>
 					<input type="submit" class="button-primary" value="<?php _e('Save Changes', 'gabfire-widget-pack') ?>" />

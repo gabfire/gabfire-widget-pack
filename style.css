@@ -723,3 +723,10 @@ form.gabfire_search_style2 input ,form.gabfire_search_style2 input:hover, form.g
 
 .gab_text_widget {overflow:hidden}
 .gab_text_widget .widgettitle {min-height:24px;padding:8px 0}
+
+/*----- [[ Contact Us ]] -----*/
+.gab_contact_widget, .gab_contact_widget p {font-size:15px}
+.gab_contact_logocont {border-bottom:1px dotted #efefef;display:block;padding-bottom:20px;margin-bottom:20px}
+.gab_contact_widget .aligncenter {margin:0 auto;}
+
+.clear {clear:both;display:block;height:1px;}

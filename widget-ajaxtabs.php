@@ -79,8 +79,7 @@ class gabfire_ajaxtabs extends WP_Widget {
 									} else {
 										echo get_the_post_thumbnail($post->ID, 'thumbnail');
 									}
-									?>
-									<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'gabfire-widget-pack' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark" class="block"><?php the_title(); ?></a>
+									?><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'gabfire-widget-pack' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark" class="block"><?php the_title(); ?></a>
 									<?php if($postmeta) { ?>
 										<span class="block"><?php _e('by','gabfire-widget-pack'); ?> <?php the_author_posts_link(); ?> - <?php comments_popup_link(__('No Comment','gabfire-widget-pack'), __('1 Comment','gabfire-widget-pack'), __('% Comments','gabfire-widget-pack'));?></span>
 									<?php } ?>
