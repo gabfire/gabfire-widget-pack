@@ -3,7 +3,7 @@ Contributors: gabfire
 Tags: social icons, share post, text widget, about us, author badge, ajax tabs, Feedburner email subscribe, related posts, fickr images, search, popular entries, random entries, recent entries, gabfire themes
 Requires at least: 3.4
 Tested up to: 3.5.1
-Stable tag: 1.1
+Stable tag: 1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -117,7 +117,16 @@ You can install the Gabfire Widget Pack from your WordPress Dashboard or manuall
 11. Widget: Search
 12. Widget: Social Icons
 13. Widget: Share Items
+
 == Changelog ==
+
+= 1.2 =
+* New Widget - Gabfire Recent Tweets
+* Admin panel change
+
+= 1.1.1 =
+* Fix Twitter share box
+* Add LinkedIn share box/button
 
 = 1.1 =
 * New Widget: Latest Tweets by Hashtag

@@ -110,7 +110,6 @@ class gab_social extends WP_Widget {
 	function form($instance) {
 		$defaults	= array(
 			'title' => 'Socialize',
-			'title' => '',
 			'fbook_l' => '',
 			'tweet_l' => '',
 			'feed_l' => '',
@@ -169,7 +168,7 @@ class gab_social extends WP_Widget {
 	</p>
 	
 	<p>
-		<label for="<?php echo $this->get_field_id('flickr_l'); ?>"><?php _e('Link to Flickr Account','gabfire-widget-pack'); ?></label>
+		<label for="<?php echo $this->get_field_id('flickr_l'); ?>"><?php _e('Link to Flickr account','gabfire-widget-pack'); ?></label>
 		<input class="widefat" id="<?php echo $this->get_field_id('flickr_l'); ?>" name="<?php echo $this->get_field_name('flickr_l'); ?>" type="text" value="<?php echo esc_attr($instance['flickr_l']); ?>" />
 	</p>
 		

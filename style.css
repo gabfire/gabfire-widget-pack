@@ -497,9 +497,15 @@ form.gabfire_search_style2 input ,form.gabfire_search_style2 input:hover, form.g
 .pinterest-share-button {
     float: left;
     width: auto;
+	width: 55px;
 }
 
-		/* Share boxes below post */
+.linkedin-share-button {
+    float: left;
+    width: auto;
+}
+
+/* Share boxes below post */
 .gab_share_boxes {
     width: 100%;
     display: block;
@@ -544,6 +550,15 @@ form.gabfire_search_style2 input ,form.gabfire_search_style2 input:hover, form.g
     width: auto;
     margin-top: 20px;
 }
+
+.linkedin-share-box {
+    display: block;
+    float: left;
+    width: 67px;
+    width: auto;
+    margin-right: 20px;
+}
+
 
 .gabfire_share_widget a {
     width: 32px;
@@ -730,3 +745,8 @@ form.gabfire_search_style2 input ,form.gabfire_search_style2 input:hover, form.g
 .gab_contact_widget .aligncenter {margin:0 auto;}
 
 .clear {clear:both;display:block;height:1px;}
+
+/*----- [[ Contact Us ]] -----*/
+.gabfire-tweets {}
+.gabfire-tweets  li{overflow:hidden;margin-left:0 !important}
+.gabfire-tweets img {width:40px}

@@ -1,12 +1,12 @@
 /* Options Framework Admin Styles */
 #panelheader {
-	width:780px;
+	width:100%;
 	height: 110px;
 	overflow: hidden;
-	border-bottom: 1px solid #ccc;
+	border-bottom: 1px solid #ddd;
 	border-top-left-radius: 6px 6px !important;
 	border-top-right-radius: 6px 6px !important;
-	background: #dfdfdf url(../images/header-bg.png) bottom left repeat-x !important;
+	background: #efefef;
 }
 #panelheader .header-info{
 	float: right;
@@ -25,27 +25,53 @@
 }
 
 #settings-metabox {
-width:748px;
+width:auto;
 overflow:hidden;
 border:1px solid #ddd;
 border-top:0;
-padding:0px 15px 1px;
+padding:0px 0 1px;
 }
+
+.gabfire-plugin-settings.metabox-holder h3 {
+cursor:default !important;
+-webkit-touch-callout: auto;
+-webkit-user-select: auto;
+-khtml-user-select: auto;
+-moz-user-select: auto;
+-ms-user-select: auto;
+user-select: auto;	
+box-shadow:none;
+text-shadow:none;
+}
+.postbox {background:#fff !important}
+
 .gab_option_box {
-	width:346px;
-	padding:0 10px 1px;
+	width:100%;
+	padding-bottom:1px;
 	float:left;
 	border:1px solid #ddd;
 	margin: 0 0 15px;
 	border-radius: 5px;
+	background:#f9f9f9
+}
+.gab_option_box_inner {
+	padding:0 10px;
 }
 .gab_option_box.deactive {opacity:0.5}
-.gab_option_box.deactive:hover{opacity:1}
+.gab_option_box.deactive:hover{opacity:0.9}
 .clearfix {clear:both;height:1px;display:block;width:100%}
-.gab_left {float:left;}
-.gab_right {float:right;}
+.gabfire-col-left {float:left;width:49%}
+.gabfire-col-right {float:right;width:49%}
+
+.gab_option_box h3 {
+	float:left;
+	background:none;
+	border:none;
+	padding:0;
+	margin:15px 0 10px;
+}
 .gab_option_box p {clear:both;margin:0 0 10px;}
-.gab_option_box h3 {float:left;width:244px;}
+.gab_option_box .widefat {margin-bottom:5px;color:#333}
 .widget_trigger {
 	border: 1px solid #a2a2a2;
 	-moz-border-radius: 5px;
@@ -60,6 +86,7 @@ padding:0px 15px 1px;
 	width: 80px;
 	float:right;
 }
+
 .widget_trigger input {display: none;}
 .widget_trigger input:checked + .gab_switcher {left: 0px;}
 .gab_switcher {
@@ -71,6 +98,7 @@ padding:0px 15px 1px;
 	-o-transition: left .25s ease-out;
 	transition: left .25s ease-out;
 }
+
 .gab_switcheron, .gab_switcherblock, .gab_switcheroff {
 	display: block;
 	font:bold 11px/23px verdana, arial, verdana, sans-serif;
@@ -119,12 +147,15 @@ padding:0px 15px 1px;
 	width: 40px;
 }
 .gabfire_options_submit {
-	padding: 7px 15px 6px;
-	border-top: 1px solid #ececec;
-	margin:0 -15px;
+	padding: 7px 12px 6px;
+	border-bottom: 1px solid #ddd;
 	overflow:hidden;
 	background-color: #F1F1F1;
     background-image: -moz-linear-gradient(center top , #F9F9F9, #ECECEC);
+}
+.gabfire_options_submit.submit-bottom {
+	border-top: 1px solid #ddd;
+	border-bottom:none;
 }
 .gabfire_options_submit .button-primary {
 	float:right;
@@ -136,5 +167,6 @@ padding:0px 15px 1px;
 .activate_widgets_notice {
 	float:left;
 	width:auto;
-	margin:4px 0 0 0;
+	margin:6px 0 0 0;
+	font-size:13px;
 }

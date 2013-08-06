@@ -13,6 +13,7 @@ class gab_share extends WP_Widget {
 		$boxg1	= $instance['boxg1'] ? '1' : '0';
 		$boxlike	= $instance['boxlike'] ? '1' : '0';
 		$boxpinterest	= $instance['boxpinterest'] ? '1' : '0';
+		$boxlinkedin	= $instance['boxlinkedin'] ? '1' : '0';
 		$box_or_button	= $instance['box_or_button'] ? '1' : '0';
 		$fbook	= $instance['fbook'] ? '1' : '0';
 		$tweet	= $instance['tweet'] ? '1' : '0';
@@ -36,7 +37,7 @@ class gab_share extends WP_Widget {
 			if ( $title ) {
 				echo $before_title . $title . $after_title;	
 			}
-			if(($boxtweet == 1) or ($boxg1 == 1) or ($boxlike == 1) or ($boxpinterest == 1)) {
+			if(($boxtweet == 1) or ($boxg1 == 1) or ($boxlike == 1) or ($boxpinterest == 1) or ($boxlinkedin == 1)) {
 				if($box_or_button == 0) {
 					echo '<div class="gab_share_buttons">';
 				} else {
@@ -50,17 +51,25 @@ class gab_share extends WP_Widget {
 					}		
 				
 					if($boxtweet) {
-						echo '<div class="twitter-share-button"><a href="https://twitter.com/share" class="twitter-share-button" data-url="'.get_permalink().'" data-text="';the_title(); echo '" data-lang="'. substr(get_bloginfo ( 'language' ), 0, 2) .'"></a></div>';
+						echo '<div class="twitter-share-button"><a href="https://twitter.com/share" class="twitter-share-button" data-url="'.get_permalink().'" data-text="'. get_the_title() .'" data-lang="'. substr(get_bloginfo ( 'language' ), 0, 2) .'"></a></div>';
 						add_action("wp_footer", "gabfire_share_twitter"); 
 					}
 					if($boxlike) {
 						echo '<div class="facebook-share-button"><div class="fb-like" data-href="'.get_permalink().'" data-send="false" data-layout="button_count" data-width="80" data-show-faces="true"></div></div>';
 						add_action("wp_footer", "gabfire_share_facebook"); 
 					}
+					
 					if($boxpinterest) { 
 						echo '<div class="pinterest-share-button"><a href="http://pinterest.com/pin/create/button/?url='. urlencode(get_permalink()) .'&media='. urlencode($image[0]) .'&description='. get_the_excerpt() .'" class="pin-it-button" count-layout="horizontal"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="';_e('Pin It','gabfire-widget-pack'); echo'" /></a></div>';
 						add_action("wp_footer", "gabfire_share_pinterest");
+					}							
+					
+					if($boxlinkedin) { 
+						echo '<div class="linkedin-share-button"><script type="IN/Share" data-url="www.gabfirethemes.com" data-counter="right"></script></div>';
+						add_action("wp_footer", "gabfire_share_linkedin");
 					}
+									
+						
 				} else {
 					if($boxg1) {
 						echo '<div class="google-share-box"><div class="g-plusone" data-size="tall"></div></div>';
@@ -74,14 +83,20 @@ class gab_share extends WP_Widget {
 					}				
 				
 					if($boxtweet) {
-						echo '<div class="twitter-share-box"><a href="https://twitter.com/share" class="twitter-share-button" data-url="'. get_permalink() .'" data-counturl="'.get_permalink().'" data-text="'. get_the_title() .' data-lang="'. substr(get_bloginfo ( 'language' ), 0, 2) .'" data-related="anywhereTheJavascriptAPI" data-count="vertical">Tweet</a></div>';
+						echo '<div class="twitter-share-box"><a href="https://twitter.com/share" class="twitter-share-button" data-url="'. get_permalink() .'" data-counturl="'.get_permalink().'" data-text="'. get_the_title() .'" data-lang="'. substr(get_bloginfo ( 'language' ), 0, 2) .'" data-related="anywhereTheJavascriptAPI" data-count="vertical">Tweet</a></div>';
 						add_action("wp_footer", "gabfire_share_twitter"); 
 					}
 
+					if($boxlinkedin) { 
+						echo '<div class="linkedin-share-box"><script type="IN/Share" data-url="www.gabfirethemes.com" data-counter="top"></script></div>';
+						add_action("wp_footer", "gabfire_share_linkedin");
+					}						
+					
 					if($boxpinterest) { 
 						echo '<div class="pinterest-share-box"><a href="http://pinterest.com/pin/create/button/?url='. urlencode(get_permalink()) .'&media='. urlencode($image[0]) .'&description='. get_the_excerpt() .'" class="pin-it-button" count-layout="horizontal"><img border="0" src="//assets.pinterest.com/images/PinExt.png" title="';_e('Pin It','gabfire-widget-pack'); echo'" /></a></div>';
 						add_action("wp_footer", "gabfire_share_pinterest");
 					}
+					
 				}			
 				
 			if(($boxtweet == 1) or ($boxg1 == 1) or ($boxlike == 1) or ($boxpinterest == 1)) {
@@ -147,6 +162,7 @@ class gab_share extends WP_Widget {
 		$instance['boxg1']	= $new_instance['boxg1'];
 		$instance['boxlike']	= $new_instance['boxlike'];
 		$instance['boxpinterest']	= $new_instance['boxpinterest'];
+		$instance['boxlinkedin']	= $new_instance['boxlinkedin'];
 		$instance['box_or_button']	= $new_instance['box_or_button'];
 		$instance['plus1']	= $new_instance['plus1'];
 		$instance['fbook'] = $new_instance['fbook'] ? '1' : '0';
@@ -173,6 +189,7 @@ class gab_share extends WP_Widget {
 			'boxg1' => '1',
 			'boxlike' => '1',
 			'boxpinterest' => '1',
+			'boxlinkedin' => '1',
 			'plus1' => '0',
 			'fbook' => '0',
 			'tweet' => '0',
@@ -227,6 +244,14 @@ class gab_share extends WP_Widget {
 		</select>
 		<label for="<?php echo $this->get_field_id( 'boxpinterest' ); ?>"><?php _e('Pinterest Pin It Box/Button','gabfire-widget-pack'); ?></label> 
 	</p>	
+	
+	<p>
+		<select id="<?php echo $this->get_field_id( 'boxlinkedin' ); ?>" name="<?php echo $this->get_field_name( 'boxlinkedin' ); ?>">
+			<option value="1" <?php selected( $instance['boxlinkedin'], '1' ); ?>><?php _e('Enable','gabfire-widget-pack'); ?></option>
+			<option value="0" <?php selected( $instance['boxlinkedin'], '0' ); ?>><?php _e('Disable','gabfire-widget-pack'); ?></option>	
+		</select>
+		<label for="<?php echo $this->get_field_id( 'boxlinkedin' ); ?>"><?php _e('LinkedIn Box/Button','gabfire-widget-pack'); ?></label> 
+	</p>		
 	
 	<p>
 		<select id="<?php echo $this->get_field_id( 'box_or_button' ); ?>" name="<?php echo $this->get_field_name( 'box_or_button' ); ?>">
@@ -408,6 +433,19 @@ if(!function_exists('gabfire_share_pinterest')) {
 		</script>
 	<?php }
 } 
+
+if(!function_exists('gabfire_share_linkedin')) {
+	function gabfire_share_linkedin() { ?>
+		<script src="//platform.linkedin.com/in.js" type="text/javascript">
+		<?php 
+		$language = get_bloginfo('language'); 
+		$language = str_replace("-", "_", $language);		
+		echo "lang: $language"; ?>
+		</script>
+	<?php }
+} 
+
+
 
 function register_gab_share() {
 	register_widget('gab_share');
