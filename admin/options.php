@@ -427,16 +427,16 @@ function gab_render_form() {
 											<span class="gab_switcherblock"></span>
 										</span>
 									</label>
-									<p><?php _e('Get recent Tweets based on a username or hashtag. Visit <a href="https://dev.twitter.com/apps">https://dev.twitter.com/apps</a> to get your application and secret keys.','gabfire-widget-pack'); ?></p>
+									<p><?php _e('Get recent Tweets based on an username or #hashtag. Visit <a target="_blank" href="https://dev.twitter.com/apps">https://dev.twitter.com/apps</a> to get your application and secret keys.','gabfire-widget-pack'); ?></p>
 									
 									<p><?php _e('','gabfire-widget-pack'); ?></p>
 									<div class="gabfire-col-left">
-										<?php _e('Key','gabfire-widget-pack'); ?><input type="text" class="widefat" size="57" name="gab_options[key]" value="<?php echo $options['key']; ?>" />
-										<?php _e('Secret','gabfire-widget-pack'); ?><input type="text" class="widefat" size="57" name="gab_options[secret]" value="<?php echo $options['secret']; ?>" />
+										<?php _e('Consumer Key','gabfire-widget-pack'); ?><input type="text" class="widefat" size="57" name="gab_options[key]" value="<?php echo $options['key']; ?>" />
+										<?php _e('Consumer Secret','gabfire-widget-pack'); ?><input type="text" class="widefat" size="57" name="gab_options[secret]" value="<?php echo $options['secret']; ?>" />
 									</div>
 									<div class="gabfire-col-right">
-										<?php _e('Token key','gabfire-widget-pack'); ?><input type="text" class="widefat" size="57" name="gab_options[token_key]" value="<?php echo $options['token_key']; ?>" />
-										<?php _e('Token secret','gabfire-widget-pack'); ?><input type="text" class="widefat" size="57" name="gab_options[token_secret]" value="<?php echo $options['token_secret']; ?>" />
+										<?php _e('Access Token Key','gabfire-widget-pack'); ?><input type="text" class="widefat" size="57" name="gab_options[token_key]" value="<?php echo $options['token_key']; ?>" />
+										<?php _e('Access Token Secret','gabfire-widget-pack'); ?><input type="text" class="widefat" size="57" name="gab_options[token_secret]" value="<?php echo $options['token_secret']; ?>" />
 									</div>
 									<div class="clearfix"></div>
 								</div><!-- .gab_option_box_inner -->

@@ -27,14 +27,14 @@ class gabfire_search extends WP_Widget {
 					<form class="gabfire_search_style1" action="<?php echo esc_url( home_url( '/' ) ); ?>">
 						<fieldset style="<?php if ( $bgcol ) { echo 'background:' . esc_html( $bgcol ); echo ';';} if ( $bordercol ) { echo 'border:1px solid ' . esc_html( $bordercol ); echo ';';} ?>">
 							<input type="text" style="width:80%;<?php if ( $bgcol ) { echo 'background:' . esc_attr( $bgcol ); } ?>" class="gab_search_text" name="s" value="<?php echo esc_attr( $label ); ?>" onfocus="if (this.value == '<?php echo esc_attr( $label ); ?>') {this.value = '';}" onblur="if (this.value == '') {this.value = '<?php echo esc_attr( $label ); ?>';}" />
-							<input type="image" class="submit_style1" src="<?php echo SMART_WIDGETS_URL; ?>/images/search.png" alt="<?php echo esc_attr( $label ); ?>" />
+							<input type="image" class="submit_style1" src="<?php echo GABFIRE_WIDGETS_URL; ?>/images/search.png" alt="<?php echo esc_attr( $label ); ?>" />
 							<div class="clearfix"></div>
 						</fieldset>
 					</form>				
 				<?php } else { ?>
-					<form action="<?php echo esc_url( home_url( '/' ) ); ?>" class="gabfire_search_style2" style="background:url(<?php echo SMART_WIDGETS_URL; ?>/images/bgr_search_box.png) no-repeat;">
+					<form action="<?php echo esc_url( home_url( '/' ) ); ?>" class="gabfire_search_style2" style="background:url(<?php echo GABFIRE_WIDGETS_URL; ?>/images/bgr_search_box.png) no-repeat;">
 						<fieldset>
-							<input type="image" class="submit_style2" src="<?php echo SMART_WIDGETS_URL; ?>/images/bgr_search_box-submit.png" alt="<?php echo esc_attr( $label ); ?>" />
+							<input type="image" class="submit_style2" src="<?php echo GABFIRE_WIDGETS_URL; ?>/images/bgr_search_box-submit.png" alt="<?php echo esc_attr( $label ); ?>" />
 							<input type="text" class="gab_search_text" name="s" value="<?php echo esc_attr( $label ); ?>" onfocus="if (this.value == '<?php echo esc_attr( $label ); ?>') {this.value = '';}" onblur="if (this.value == '') {this.value = '<?php echo esc_attr( $label ); ?>';}" />
 						</fieldset>
 					</form>

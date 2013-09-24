@@ -1,17 +1,29 @@
 === Gabfire Widget Pack ===
 Contributors: gabfire
-Tags: social icons, share post, text widget, about us, author badge, ajax tabs, Feedburner email subscribe, related posts, fickr images, search, popular entries, random entries, recent entries, gabfire themes
+Tags: twitter, twitter feed, social icons, share post, text widget, about us, author badge, ajax tabs, Feedburner email subscribe, related posts, fickr images, search, popular entries, random entries, recent entries, gabfire themes
 Requires at least: 3.4
-Tested up to: 3.5.1
+Tested up to: 3.6
 Stable tag: 1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-The Gabfire Widget Pack contains 12 useful widgets to extend your WordPress site. It is a free plugin that will work with any theme. 
+The Gabfire Widget Pack contains over a dozen useful widgets to extend your WordPress site. It is a free plugin that will work with ANY theme. 
 
 == Description ==
 
-The Gabfire Widget Pack is a free plugin for the WordPress community. Below are the steps required to install, activate, and configure the Gabfire Widget Pack.
+The Gabfire Widget Pack is a feature-packed plugin that adds the most commonly used widgets to your site. Rather than having to download several plugins by various authors, this plugin bundles together the most popular widgets. 
+
+It is maintained by the folks over at [Gabfire] (http://www.gabfirethemes.com "WordPress Themes").
+
+Below are the steps required to install, activate, and configure the Gabfire Widget Pack.
+
+= Widget: Recent Tweets =
+Use this widget to showcase your recent tweets from Twitter on your WordPress blog. It allows tweets by username or by hashtag.
+
+* By Username
+* By Hashtag
+
+This widget uses the latest Twitter oAuth method to retrieve tweets to ensure compatibility. 
 
 = Widget: Archive Search =
 Give your users the option to search to their heart's content. This powerful widget provides 3 methods to search:
@@ -80,6 +92,8 @@ Get more traffic and cross promote your posts with this social sharing widget. I
 
 = Widget: Text+ Widget =
 A slight twist on the original. This text widget gives you the ability to have an icon and button that links to any post or page of your choice. 
+
+For more details, visit [Gabfire Themes] (http://www.gabfirethemes.com "Best WordPress Themes"). 
 
 == Installation ==
 
