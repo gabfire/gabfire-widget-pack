@@ -78,8 +78,12 @@ class gabfire_flickrrss extends WP_Widget {
 		);
 		$instance = wp_parse_args( (array) $instance, $defaults ); 
 		
-		$items  = (int) $items;
-		if ( $items < 1 || 10 < $items )
+		if (isset($items)) 
+			$items  = (int) $items;
+		else 
+			$items = 0;
+			
+		if (isset($items) && $items < 1 || 10 < $items )
 		$items  = 10;
 		?>
 		

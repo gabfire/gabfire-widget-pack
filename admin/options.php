@@ -186,7 +186,7 @@ function gab_render_form() {
 							
 							<div class="gabfire-col-left">
 				
-								<?php if($options['about_widget'] == 1) { $state = "active"; } else { $state = "deactive"; } ?>
+								<?php if(isset($options['about_widget']) && $options['about_widget'] == 1) { $state = "active"; } else { $state = "deactive"; } ?>
 								<div class="gab_option_box <?php echo $state; ?>">
 									<div class="gab_option_box_inner">
 										<h3><?php _e('About Us','gabfire-widget-pack'); ?></h3>
@@ -202,7 +202,7 @@ function gab_render_form() {
 									</div><!-- .gab_option_box_inner -->
 								</div>
 								
-								<?php if($options['ajaxtabs'] == 1) { $state = "active"; } else { $state = "deactive"; } ?>
+								<?php if(isset($options['ajaxtabs']) && $options['ajaxtabs'] == 1) { $state = "active"; } else { $state = "deactive"; } ?>
 								<div class="gab_option_box <?php echo $state; ?>">
 									<div class="gab_option_box_inner">
 										<h3><?php _e('Posts Tabs Widget','gabfire-widget-pack'); ?></h3>
@@ -219,7 +219,7 @@ function gab_render_form() {
 									</div><!-- .gab_option_box_inner -->
 								</div>
 																
-								<?php if($options['authorbadge'] == 1) { $state = "active"; } else { $state = "deactive"; } ?>
+								<?php if(isset($options['authorbadge']) && $options['authorbadge'] == 1) { $state = "active"; } else { $state = "deactive"; } ?>
 								<div class="gab_option_box <?php echo $state; ?>">
 									<div class="gab_option_box_inner">
 										<h3><?php _e('Author Badge','gabfire-widget-pack'); ?></h3>
@@ -236,7 +236,7 @@ function gab_render_form() {
 									</div><!-- .gab_option_box_inner -->
 								</div>
 							
-								<?php if($options['social'] == 1) { $state = "active"; } else { $state = "deactive"; } ?>
+								<?php if(isset($options['social']) && $options['social'] == 1) { $state = "active"; } else { $state = "deactive"; } ?>
 								<div class="gab_option_box <?php echo $state; ?>">
 									<div class="gab_option_box_inner">
 										<h3><?php _e('Social Icons','gabfire-widget-pack'); ?></h3>
@@ -253,7 +253,7 @@ function gab_render_form() {
 									</div><!-- .gab_option_box_inner -->
 								</div>				
 							
-								<?php if($options['feedburner'] == 1) { $state = "active"; } else { $state = "deactive"; } ?>
+								<?php if(isset($options['feedburner']) && $options['feedburner'] == 1) { $state = "active"; } else { $state = "deactive"; } ?>
 								<div class="gab_option_box <?php echo $state; ?>">
 									<div class="gab_option_box_inner">
 										<h3><?php _e('Feedburner Email Subscribe','gabfire-widget-pack'); ?></h3>
@@ -270,7 +270,7 @@ function gab_render_form() {
 									</div><!-- .gab_option_box_inner -->
 								</div>	
 							
-								<?php if($options['popular_random'] == 1) { $state = "active"; } else { $state = "deactive"; } ?>
+								<?php if(isset($options['popular_random']) && $options['popular_random'] == 1) { $state = "active"; } else { $state = "deactive"; } ?>
 								<div class="gab_option_box <?php echo $state; ?>">
 									<div class="gab_option_box_inner">				
 										<h3><?php _e('Popular/Random Entries','gabfire-widget-pack'); ?></h3>
@@ -291,7 +291,7 @@ function gab_render_form() {
 							
 							<div class="gabfire-col-right">					
 							
-								<?php if($options['flickrrss'] == 1) { $state = "active"; } else { $state = "deactive"; } ?>
+								<?php if(isset($options['flickrrss']) && $options['flickrrss'] == 1) { $state = "active"; } else { $state = "deactive"; } ?>
 								<div class="gab_option_box <?php echo $state; ?>">
 									<div class="gab_option_box_inner">
 										<h3><?php _e('Flickr Images','gabfire-widget-pack'); ?></h3>
@@ -308,7 +308,7 @@ function gab_render_form() {
 									</div><!-- .gab_option_box_inner -->
 								</div>							
 							
-								<?php if($options['archive_widget'] == 1) { $state = "active"; } else { $state = "deactive"; } ?>
+								<?php if(isset($options['archive_widget']) && $options['archive_widget'] == 1) { $state = "active"; } else { $state = "deactive"; } ?>
 								<div class="gab_option_box <?php echo $state; ?>">
 									<div class="gab_option_box_inner">
 										<h3><?php _e('Archive Search','gabfire-widget-pack'); ?></h3>
@@ -325,7 +325,7 @@ function gab_render_form() {
 									</div><!-- .gab_option_box_inner -->
 								</div>				
 							
-								<?php if($options['relatedposts'] == 1) { $state = "active"; } else { $state = "deactive"; } ?>
+								<?php if(isset($options['relatedposts']) && $options['relatedposts'] == 1) { $state = "active"; } else { $state = "deactive"; } ?>
 								<div class="gab_option_box <?php echo $state; ?>">
 									<div class="gab_option_box_inner">				
 										<h3><?php _e('Related Posts','gabfire-widget-pack'); ?></h3>
@@ -342,7 +342,7 @@ function gab_render_form() {
 									</div><!-- .gab_option_box_inner -->
 								</div>
 													
-								<?php if($options['search'] == 1) { $state = "active"; } else { $state = "deactive"; } ?>
+								<?php if(isset($options['search']) && $options['search'] == 1) { $state = "active"; } else { $state = "deactive"; } ?>
 								<div class="gab_option_box <?php echo $state; ?>">
 									<div class="gab_option_box_inner">
 										<h3><?php _e('Search','gabfire-widget-pack'); ?></h3>
@@ -359,7 +359,7 @@ function gab_render_form() {
 									</div><!-- .gab_option_box_inner -->
 								</div>
 												
-								<?php if($options['share'] == 1) { $state = "active"; } else { $state = "deactive"; } ?>
+								<?php if(isset($options['share']) && $options['share'] == 1) { $state = "active"; } else { $state = "deactive"; } ?>
 								<div class="gab_option_box <?php echo $state; ?>">
 									<div class="gab_option_box_inner">				
 										<h3><?php _e('Share Posts','gabfire-widget-pack'); ?></h3>
@@ -376,7 +376,7 @@ function gab_render_form() {
 									</div><!-- .gab_option_box_inner -->
 								</div>
 								
-								<?php if($options['text_widget'] == 1) { $state = "active"; } else { $state = "deactive"; } ?>
+								<?php if(isset($options['text_widget']) && $options['text_widget'] == 1) { $state = "active"; } else { $state = "deactive"; } ?>
 								<div class="gab_option_box <?php echo $state; ?>">	
 									<div class="gab_option_box_inner">
 										<h3><?php _e('Gabfire Text+ Widget','gabfire-widget-pack'); ?></h3>
@@ -393,7 +393,7 @@ function gab_render_form() {
 									</div><!-- .gab_option_box_inner -->
 								</div>
 													
-								<?php if($options['contact_info'] == 1) { $state = "active"; } else { $state = "deactive"; } ?>
+								<?php if(isset($options['contact_info']) && $options['contact_info'] == 1) { $state = "active"; } else { $state = "deactive"; } ?>
 								<div class="gab_option_box <?php echo $state; ?>">
 									<div class="gab_option_box_inner">
 										<h3><?php _e('Contact Information','gabfire-widget-pack'); ?></h3>
@@ -414,7 +414,7 @@ function gab_render_form() {
 							
 							<div class="clearfix"></div>
 								
-							<?php if($options['recent_tweets'] == 1) { $state = "active"; } else { $state = "deactive"; } ?>
+							<?php if(isset($options['recent_tweets']) && $options['recent_tweets'] == 1) { $state = "active"; } else { $state = "deactive"; } ?>
 							<div class="gab_option_box <?php echo $state; ?>">
 								<div class="gab_option_box_inner">
 									<h3><?php _e('Recent Tweets','gabfire-widget-pack'); ?></h3>
