@@ -41,13 +41,13 @@ class gabfire_about extends WP_Widget {
 	}
 	
 	function update($new_instance, $old_instance) {  
-		$instance['title']		= strip_tags($new_instance['title']);
+		$instance['title']		= ( ! empty( $new_instance['title'] ) ) ? sanitize_text_field( $new_instance['title'] ) : '';
 		$instance['a_avatar']	= $new_instance['a_avatar'] ? '1' : '0';
-		$instance['a_text'] 	= strip_tags($new_instance['a_text']);
-		$instance['a_align'] 	= strip_tags($new_instance['a_align']);
-		$instance['a_imgurl'] 	= strip_tags($new_instance['a_imgurl']);
-		$instance['a_link'] 	= strip_tags($new_instance['a_link']);
-		$instance['a_anchor'] 	= strip_tags($new_instance['a_anchor']); 
+		$instance['a_text'] 	= ( ! empty( $new_instance['a_text'] ) ) ? sanitize_text_field( $new_instance['a_text'] ) : '';
+		$instance['a_align'] 	= ( ! empty( $new_instance['a_align'] ) ) ? sanitize_text_field( $new_instance['a_align'] ) : '';
+		$instance['a_imgurl'] 	= ( ! empty( $new_instance['a_imgurl'] ) ) ? sanitize_text_field( $new_instance['a_imgurl'] ) : '';
+		$instance['a_link'] 	= ( ! empty( $new_instance['a_link'] ) ) ? sanitize_text_field( $new_instance['a_link'] ) : '';
+		$instance['a_anchor'] 	= ( ! empty( $new_instance['a_anchor'] ) ) ? sanitize_text_field( $new_instance['a_anchor'] ) : ''; 
 		return $new_instance;
 	}
   

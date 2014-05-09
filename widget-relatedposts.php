@@ -77,9 +77,9 @@ class gabfire_relatedposts extends WP_Widget {
 		}
 		
 	function update($new_instance, $old_instance) {  
-		$instance['title']  = $new_instance['title'];	
-		$instance['postnr']  = (int)$new_instance['postnr'];
-		$instance['liststyle']  = $new_instance['liststyle'];
+		$instance['title']  = ( ! empty( $new_instance['title'] ) ) ? sanitize_text_field( $new_instance['title'] ) : '';	
+		$instance['postnr']  = ( ! empty( $new_instance['postnr'] ) ) ? sanitize_text_field( (int)$new_instance['postnr'] ) : '';
+		$instance['liststyle']  = ( ! empty( $new_instance['liststyle'] ) ) ? sanitize_text_field( $new_instance['liststyle'] ) : '';
 		
 		return $new_instance;
 	}	  

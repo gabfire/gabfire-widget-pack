@@ -57,15 +57,15 @@ class gabfire_feedburner extends WP_Widget {
 	
 	function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
-		$instance['title'] = strip_tags($new_instance['title']);
-		$instance['user'] = strip_tags($new_instance['user']);
-		$instance['text'] = strip_tags($new_instance['text']);
-		$instance['bgcol'] = strip_tags($new_instance['bgcol']);
-		$instance['bordercol'] = strip_tags($new_instance['bordercol']);
-		$instance['textcol'] = strip_tags($new_instance['textcol']);
-		$instance['a_text'] 	= strip_tags($new_instance['a_text']);
-		$instance['wstyle'] 	= $new_instance['wstyle'];
-		$instance['bgurl'] 	= $new_instance['bgurl'];
+		$instance['title'] = ( ! empty( $new_instance['title'] ) ) ? sanitize_text_field( $new_instance['title'] ) : '';
+		$instance['user'] = ( ! empty( $new_instance['user'] ) ) ? sanitize_text_field( $new_instance['user'] ) : '';
+		$instance['text'] = ( ! empty( $new_instance['text'] ) ) ? sanitize_text_field( $new_instance['text'] ) : '';
+		$instance['bgcol'] = ( ! empty( $new_instance['bgcol'] ) ) ? sanitize_text_field( $new_instance['bgcol'] ) : '';
+		$instance['bordercol'] = ( ! empty( $new_instance['bordercol'] ) ) ? sanitize_text_field( $new_instance['bordercol'] ) : '';
+		$instance['textcol'] = ( ! empty( $new_instance['textcol'] ) ) ? sanitize_text_field( $new_instance['textcol'] ) : '';
+		$instance['a_text'] = ( ! empty( $new_instance['a_text'] ) ) ? sanitize_text_field( $new_instance['a_text'] ) : '';
+		$instance['wstyle'] = ( ! empty( $new_instance['wstyle'] ) ) ? sanitize_text_field( $new_instance['wstyle'] ) : '';
+		$instance['bgurl'] 	= ( ! empty( $new_instance['bgurl'] ) ) ? sanitize_text_field( $new_instance['bgurl'] ) : '';
 		return $instance;
 	}
 
@@ -132,13 +132,13 @@ class gabfire_feedburner extends WP_Widget {
 			<textarea class="widefat" rows="5" cols="20" id="<?php echo $this->get_field_id('a_text'); ?>" name="<?php echo $this->get_field_name('a_text'); ?>"><?php echo esc_attr($instance['a_text']); ?></textarea>
 		</p>	
 
-		<p style="background-color: #efefef;border:1px solid #ddd;padding:10px;"><?php _e('URL of image to replace background of big form with'); ?></p>		
+		<p style="background-color: #efefef;border:1px solid #ddd;padding:10px;"><?php _e('URL of image to replace background of big form with'); ?></p>
 		
 		<p>
 			<label for="<?php echo $this->get_field_id('bgurl'); ?>"><?php _e('URL for custom background','gabfire-widget-pack'); ?></label>
 			<input class="widefat" id="<?php echo $this->get_field_id('bgurl'); ?>" name="<?php echo $this->get_field_name('bgurl'); ?>" type="text" value="<?php echo esc_attr($instance['bgurl']); ?>" />
 		</p>		
-				
+			
 	<?php
 	}
 }

@@ -43,10 +43,10 @@ class gabfire_contactus extends WP_Widget {
 	}
 	
 	function update($new_instance, $old_instance) {  
-		$instance['title']		= strip_tags($new_instance['title']);
+		$instance['title'] = ( ! empty( $new_instance['title'] ) ) ? sanitize_text_field( $new_instance['title'] ) : '';
 		$instance['d_logo']	= $new_instance['d_logo'] ? '1' : '0';
-		$instance['address'] 	= strip_tags($new_instance['address']);
-		$instance['email'] 	= strip_tags($new_instance['email']);
+		$instance['address'] = ( ! empty( $new_instance['address'] ) ) ? sanitize_text_field( $new_instance['address'] ) : '';
+		$instance['email'] = ( ! empty( $new_instance['email'] ) ) ? sanitize_text_field( $new_instance['email'] ) : '';
 		return $new_instance;
 	}
  
