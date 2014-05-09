@@ -80,14 +80,14 @@ class gab_custom_query extends WP_Widget {
     
     function update( $new_instance, $old_instance ) {
         $instance = $old_instance;
-        $instance['title'] = ( ! empty( $new_instance['title'] ) ) ? sanitize_text_field( $new_instance['title'] ) : '';
-        $instance['postnr']     = ( ! empty( $new_instance['postnr'] ) ) ? sanitize_text_field( (int)$new_instance['postnr'] ) : '';
-		$instance['post_order']     = ( ! empty( $new_instance['post_order'] ) ) ? sanitize_text_field( $new_instance['post_order'] ) : '';
+        $instance['title'] = strip_tags($new_instance['title']);
+        $instance['postnr']     = (int)$new_instance['postnr'];
+		$instance['post_order']     = $new_instance['post_order']; 
         $instance['d_thumb']     = $new_instance['d_thumb'] ? '1' : '0';
         $instance['postmeta']     = $new_instance['postmeta'] ? '1' : '0';
-        $instance['thumbalign']     = ( ! empty( $new_instance['thumbalign'] ) ) ? sanitize_text_field( $new_instance['thumbalign'] ) : '';
-		$instance['postcls']     = ( ! empty( $new_instance['postcls'] ) ) ? sanitize_text_field( $new_instance['postcls'] ) : '';
-		$instance['titlecls']     = ( ! empty( $new_instance['titlecls'] ) ) ? sanitize_text_field( $new_instance['titlecls'] ) : '';
+        $instance['thumbalign']     = $new_instance['thumbalign'];
+		$instance['postcls']     = $new_instance['postcls'];
+		$instance['titlecls']     = $new_instance['titlecls'];
         return $instance;
     }
 

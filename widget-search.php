@@ -44,11 +44,11 @@ class gabfire_search extends WP_Widget {
 	}
 
 	function update($new_instance, $old_instance) {
-		$instance['title'] 		= ( ! empty( $new_instance['title'] ) ) ? sanitize_text_field( $new_instance['title'] ) : '';
-		$instance['label'] 		= ( ! empty( $new_instance['label'] ) ) ? sanitize_text_field( $new_instance['label'] ) : '';
+		$instance['title'] 		= strip_tags($new_instance['title']);
+		$instance['label'] 		= strip_tags($new_instance['label']);
 		$instance['s_style']	= $new_instance['s_style'] ? '1' : '0';
-		$instance['bgcol'] = ( ! empty( $new_instance['bgcol'] ) ) ? sanitize_text_field( $new_instance['bgcol'] ) : '';
-		$instance['bordercol'] = ( ! empty( $new_instance['bordercol'] ) ) ? sanitize_text_field( $new_instance['bordercol'] ) : '';
+		$instance['bgcol'] = strip_tags($new_instance['bgcol']);
+		$instance['bordercol'] = strip_tags($new_instance['bordercol']);
 		return $new_instance;
 	}
  

@@ -87,23 +87,23 @@ class gab_social extends WP_Widget {
 	}
 	
 	function update($new_instance, $old_instance) { 
-		$instance['title']	= ( ! empty( $new_instance['title'] ) ) ? sanitize_text_field( $new_instance['title'] ) : '';
-		$instance['fbook_l'] = ( ! empty( $new_instance['fbook_l'] ) ) ? sanitize_text_field( $new_instance['fbook_l'] ) : '';
-		$instance['tweet_l'] = ( ! empty( $new_instance['tweet_l'] ) ) ? sanitize_text_field( $new_instance['tweet_l'] ) : '';
-		$instance['feed_l']  = ( ! empty( $new_instance['feed_l'] ) ) ? sanitize_text_field( $new_instance['feed_l'] ) : '';
-		$instance['mspace_l'] = ( ! empty( $new_instance['mspace_l'] ) ) ? sanitize_text_field( $new_instance['mspace_l'] ) : '';
-		$instance['plus1_l'] = ( ! empty( $new_instance['plus1_l'] ) ) ? sanitize_text_field( $new_instance['plus1_l'] ) : '';
-		$instance['picasa_l'] = ( ! empty( $new_instance['picasa_l'] ) ) ? sanitize_text_field( $new_instance['picasa_l'] ) : '';
-		$instance['flickr_l'] = ( ! empty( $new_instance['flickr_l'] ) ) ? sanitize_text_field( $new_instance['flickr_l'] ) : '';
-		$instance['lastfm_l'] = ( ! empty( $new_instance['lastfm_l'] ) ) ? sanitize_text_field( $new_instance['lastfm_l'] ) : '';
-		$instance['linkin_l'] = ( ! empty( $new_instance['linkin_l'] ) ) ? sanitize_text_field( $new_instance['linkin_l'] ) : '';
-		$instance['ytube_l'] = ( ! empty( $new_instance['ytube_l'] ) ) ? sanitize_text_field( $new_instance['ytube_l'] ) : '';
-		$instance['vimeo_l'] = ( ! empty( $new_instance['vimeo_l'] ) ) ? sanitize_text_field( $new_instance['vimeo_l'] ) : '';
-		$instance['digg_l'] = ( ! empty( $new_instance['digg_l'] ) ) ? sanitize_text_field( $new_instance['digg_l'] ) : '';
-		$instance['stumb_l'] = ( ! empty( $new_instance['stumb_l'] ) ) ? sanitize_text_field( $new_instance['stumb_l'] ) : '';
-		$instance['devia_l'] = ( ! empty( $new_instance['devia_l'] ) ) ? sanitize_text_field( $new_instance['devia_l'] ) : '';
-		$instance['delic_l'] = ( ! empty( $new_instance['delic_l'] ) ) ? sanitize_text_field( $new_instance['delic_l'] ) : '';
-		$instance['fsq_l'] = ( ! empty( $new_instance['fsq_l'] ) ) ? sanitize_text_field( $new_instance['fsq_l'] ) : '';
+		$instance['title']	= strip_tags($new_instance['title']);
+		$instance['fbook_l'] = strip_tags($new_instance['fbook_l']);
+		$instance['tweet_l'] = strip_tags($new_instance['tweet_l']);
+		$instance['feed_l']  = strip_tags($new_instance['feed_l']);
+		$instance['mspace_l'] = strip_tags($new_instance['mspace_l']);
+		$instance['plus1_l'] = strip_tags($new_instance['plus1_l']);
+		$instance['picasa_l'] = strip_tags($new_instance['picasa_l']);
+		$instance['flickr_l'] = strip_tags($new_instance['flickr_l']);
+		$instance['lastfm_l'] = strip_tags($new_instance['lastfm_l']);
+		$instance['linkin_l'] = strip_tags($new_instance['linkin_l']);
+		$instance['ytube_l'] = strip_tags($new_instance['ytube_l']);
+		$instance['vimeo_l'] = strip_tags($new_instance['vimeo_l']);
+		$instance['digg_l'] = strip_tags($new_instance['digg_l']);
+		$instance['stumb_l'] = strip_tags($new_instance['stumb_l']);
+		$instance['devia_l'] = strip_tags($new_instance['devia_l']);
+		$instance['delic_l'] = strip_tags($new_instance['delic_l']);
+		$instance['fsq_l'] = strip_tags($new_instance['fsq_l']);
 		return $new_instance;
 	}
  

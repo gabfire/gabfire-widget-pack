@@ -58,13 +58,13 @@ class gabfire_archive extends WP_Widget {
 	
 	function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
-		$instance['title'] = ( ! empty( $new_instance['title'] ) ) ? sanitize_text_field( $new_instance['title'] ) : '';
-		$instance['date'] = ( ! empty( $new_instance['date'] ) ) ? sanitize_text_field( $new_instance['date'] ) : '';
-		$instance['month'] = ( ! empty( $new_instance['month'] ) ) ? sanitize_text_field( $new_instance['month'] ) : '';
-		$instance['cat'] = ( ! empty( $new_instance['cat'] ) ) ? sanitize_text_field( $new_instance['cat'] ) : '';
-		$instance['google'] = ( ! empty( $new_instance['google'] ) ) ? sanitize_text_field( $new_instance['google'] ) : '';
-		$instance['google_df'] = ( ! empty( $new_instance['google_df'] ) ) ? sanitize_text_field( $new_instance['google_df'] ) : '';
-		$instance['bgcol'] = ( ! empty( $new_instance['bgcol'] ) ) ? sanitize_text_field( $new_instance['bgcol'] ) : '';
+		$instance['title'] = strip_tags($new_instance['title']);
+		$instance['date'] = strip_tags($new_instance['date']);
+		$instance['month'] = strip_tags($new_instance['month']);
+		$instance['cat'] = strip_tags($new_instance['cat']);
+		$instance['google'] = strip_tags($new_instance['google']);
+		$instance['google_df'] = strip_tags($new_instance['google_df']);
+		$instance['bgcol'] = strip_tags($new_instance['bgcol']);
 		return $instance;
 	}
 

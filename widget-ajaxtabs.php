@@ -163,17 +163,17 @@ class gabfire_ajaxtabs extends WP_Widget {
 	}
 
 	function update($new_instance, $old_instance) {
-		$instance['title'] 		= ( ! empty( $new_instance['title'] ) ) ? sanitize_text_field( $new_instance['title'] ) : '';
-		$instance['post_label'] = ( ! empty( $new_instance['post_label'] ) ) ? sanitize_text_field( $new_instance['post_label'] ) : '';
+		$instance['title'] 		= strip_tags($new_instance['title']);
+		$instance['post_label'] = strip_tags($new_instance['post_label']);
 		$instance['postmeta']	= $new_instance['postmeta'] ? '1' : '0';
 		$instance['a_avatar']	= $new_instance['a_avatar'] ? '1' : '0';
 		$instance['colorsc']	= $new_instance['colorsc'] ? '1' : '0';
 		$instance['post_nr'] = (int) $new_instance['post_nr'];  
-		$instance['post_title']	= ( ! empty( $new_instance['post_title'] ) ) ? sanitize_text_field( $new_instance['post_title'] ) : '';
-		$instance['popular_title']	= ( ! empty( $new_instance['popular_title'] ) ) ? sanitize_text_field( $new_instance['popular_title'] ) : '';
-		$instance['comments_title']	= ( ! empty( $new_instance['comments_title'] ) ) ? sanitize_text_field( $new_instance['comments_title'] ) : '';
-		$instance['comment_label']	= ( ! empty( $new_instance['comment_label'] ) ) ? sanitize_text_field( $new_instance['comment_label'] ) : '';
-		$instance['popular_label']	= ( ! empty( $new_instance['popular_label'] ) ) ? sanitize_text_field( $new_instance['popular_label'] ) : '';
+		$instance['post_title']	= strip_tags($new_instance['post_title']);
+		$instance['popular_title']	= strip_tags($new_instance['popular_title']);
+		$instance['comments_title']	= strip_tags($new_instance['comments_title']);	
+		$instance['comment_label']	= strip_tags($new_instance['comment_label']);
+		$instance['popular_label']	= strip_tags($new_instance['popular_label']);
 		$instance['comment_nr'] 	= (int) $new_instance['comment_nr'];  
 		$instance['popular_nr'] 	= (int) $new_instance['popular_nr']; 
 		return $new_instance;

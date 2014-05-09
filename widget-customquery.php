@@ -136,23 +136,23 @@ class gab_custom_query extends WP_Widget {
     
     function update( $new_instance, $old_instance ) {
         $instance = $old_instance;
-        $instance['title'] = ( ! empty( $new_instance['title'] ) ) ? sanitize_text_field( $new_instance['title'] ) : '';
+        $instance['title'] = strip_tags($new_instance['title']);
         $instance['video']     = $new_instance['video'] ? '1' : '0';
         $instance['swap']     = $new_instance['swap'] ? '1' : '0';  
-        $instance['postnr']     = ( ! empty( $new_instance['postnr'] ) ) ? sanitize_text_field( (int)$new_instance['postnr'] ) : '';
-		$instance['postids']     = ( ! empty( $new_instance['postids'] ) ) ? sanitize_text_field( $new_instance['postids'] ) : '';
-		$instance['c_link']     = ( ! empty( $new_instance['c_link'] ) ) ? sanitize_text_field( $new_instance['c_link'] ) : '';
-        $instance['c_image']     = ( ! empty( $new_instance['c_image'] ) ) ? sanitize_text_field( $new_instance['c_image'] ) : '';
-        $instance['cat_or_postpage']     = ( ! empty( $new_instance['cat_or_postpage'] ) ) ? sanitize_text_field( $new_instance['cat_or_postpage'] ) : '';
-		$instance['post_order']     = ( ! empty( $new_instance['post_order'] ) ) ? sanitize_text_field( $new_instance['post_order'] ) : '';
+        $instance['postnr']     = (int)$new_instance['postnr'];
+		$instance['postids']     = $new_instance['postids'];
+		$instance['c_link']     = $new_instance['c_link'];
+        $instance['c_image']     = $new_instance['c_image']; 
+        $instance['cat_or_postpage']     = $new_instance['cat_or_postpage']; 
+		$instance['post_order']     = $new_instance['post_order']; 
         $instance['d_thumb']     = $new_instance['d_thumb'] ? '1' : '0';
         $instance['postmeta']     = $new_instance['postmeta'] ? '1' : '0';
-        $instance['media_w']     = ( ! empty( $new_instance['media_w'] ) ) ? sanitize_text_field( (int)$new_instance['media_w'] ) : '';
-        $instance['media_h']     = ( ! empty( $new_instance['media_h'] ) ) ? sanitize_text_field( (int)$new_instance['media_h'] ) : ''; 
-        $instance['excerpt_l']     = ( ! empty( $new_instance['excerpt_l'] ) ) ? sanitize_text_field( (int)$new_instance['excerpt_l'] ) : '';
-        $instance['thumbalign']     = ( ! empty( $new_instance['thumbalign'] ) ) ? sanitize_text_field( $new_instance['thumbalign'] ) : '';
-		$instance['postcls']     = ( ! empty( $new_instance['postcls'] ) ) ? sanitize_text_field( $new_instance['postcls'] ) : '';
-		$instance['titlecls']     = ( ! empty( $new_instance['titlecls'] ) ) ? sanitize_text_field( $new_instance['titlecls'] ) : '';
+        $instance['media_w']     = (int)$new_instance['media_w']; 
+        $instance['media_h']     = (int)$new_instance['media_h']; 
+        $instance['excerpt_l']     = (int)$new_instance['excerpt_l'];
+        $instance['thumbalign']     = $new_instance['thumbalign'];
+		$instance['postcls']     = $new_instance['postcls'];
+		$instance['titlecls']     = $new_instance['titlecls'];
         return $instance;
     }
 

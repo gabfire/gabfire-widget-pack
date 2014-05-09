@@ -18,6 +18,13 @@ form.gabfire_f_widget input, form.gabfire_f_widget input:hover, form.gabfire_f_w
     padding: 5px 7px 0 0;
     display: inline;
 }
+
+.news-signup {background:url(images/newsletter.jpg) top center;padding:20px;text-align:center}
+.news-signup .widgettitle {color:#fff;font-size:25px;font-weight:700}
+.news-signup .sidebar_feedwidget {width:253px;height:46px;background:url(images/submit-newsletter.png);padding:4px;margin:0 auto;}
+.news-signup .sidebar_mailinput {width:206px;height:38px;border:none;padding:0 0 0 5px;float:left;font-size:14px;color:#888}
+.news-signup .sidebar_mailinput_submit {float: right;display: inline;}
+.news-signup p {margin-top:15px;color:#fff;margin-bottom:0;}
 	
 /*----- [[ About Widget ]] -----*/
 .gab_about_widget {
@@ -271,7 +278,8 @@ form.gabfire_f_widget input, form.gabfire_f_widget input:hover, form.gabfire_f_w
     margin: 0 0 5px;
     color: #444;
     border: 1px solid #ddd;
-    height: 30px;
+    height: auto;
+	padding:5px;
     margin-bottom: 15px;
 }
 

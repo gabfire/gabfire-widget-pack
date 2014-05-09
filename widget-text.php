@@ -44,12 +44,12 @@ class gab_text_widget extends WP_Widget {
 	}
 	
 	function update($new_instance, $old_instance) {  
-		$instance['title']		= ( ! empty( $new_instance['title'] ) ) ? sanitize_text_field( $new_instance['title'] ) : '';
-		$instance['icon']		= ( ! empty( $new_instance['icon'] ) ) ? sanitize_text_field( $new_instance['icon'] ) : '';
-		$instance['a_text'] 	= ( ! empty( $new_instance['a_text'] ) ) ? sanitize_text_field( $new_instance['a_text'] ) : '';
-		$instance['a_link'] 	= ( ! empty( $new_instance['a_link'] ) ) ? sanitize_text_field( $new_instance['a_link'] ) : '';
-		$instance['a_anchor'] 	= ( ! empty( $new_instance['a_anchor'] ) ) ? sanitize_text_field( $new_instance['a_anchor'] ) : '';
-		$instance['wstyle'] 	= ( ! empty( $new_instance['wstyle'] ) ) ? sanitize_text_field( $new_instance['wstyle'] ) : '';
+		$instance['title']		= strip_tags($new_instance['title']);
+		$instance['icon']		= strip_tags($new_instance['icon']);
+		$instance['a_text'] 	= strip_tags($new_instance['a_text']);
+		$instance['a_link'] 	= strip_tags($new_instance['a_link']);
+		$instance['a_anchor'] 	= strip_tags($new_instance['a_anchor']);
+		$instance['wstyle'] 	= $new_instance['wstyle'];
 		
 		return $new_instance;
 	}
