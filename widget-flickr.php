@@ -55,13 +55,13 @@ class gabfire_flickrrss extends WP_Widget {
 	
 	function update( $new_instance, $old_instance ) {
 		$instance = $old_instance;
-		$instance['title'] 			= strip_tags( $new_instance['title'] );
-		$instance['photo_source'] 	= $new_instance['photo_source'];
-		$instance['flickr_id'] 		= strip_tags( $new_instance['flickr_id'] );
-		$instance['flickr_tag'] 	= strip_tags( $new_instance['flickr_tag'] );
-		$instance['display'] 		= $new_instance['display'];
-		$instance['size'] 			= $new_instance['size'];
-		$instance['photo_number'] 	= (int)$new_instance['photo_number'];
+		$instance['title'] 			= ( ! empty( $new_instance['title'] ) ) ? sanitize_text_field( $new_instance['title'] ) : '';
+		$instance['photo_source'] 	= ( ! empty( $new_instance['photo_source'] ) ) ? sanitize_text_field( $new_instance['photo_source'] ) : '';
+		$instance['flickr_id'] 		= ( ! empty( $new_instance['flickr_id'] ) ) ? sanitize_text_field( $new_instance['flickr_id'] ) : '';
+		$instance['flickr_tag'] 	= ( ! empty( $new_instance['flickr_tag'] ) ) ? sanitize_text_field( $new_instance['flickr_tag'] ) : '';
+		$instance['display'] 		= ( ! empty( $new_instance['display'] ) ) ? sanitize_text_field( $new_instance['display'] ) : '';
+		$instance['size'] 			= ( ! empty( $new_instance['size'] ) ) ? sanitize_text_field( $new_instance['size'] ) : '';
+		$instance['photo_number'] 	= ( ! empty( $new_instance['photo_number'] ) ) ? sanitize_text_field( (int)$new_instance['photo_number'] ) : '';
 
 		return $instance;
 	}

@@ -89,13 +89,13 @@ class gabfire_authorbadge extends WP_Widget {
 	}
 		
 	function update($new_instance, $old_instance) {  
-		$instance['picsize']  = (int)$new_instance['picsize'];
-		$instance['f_twitter']     = $new_instance['f_twitter'];
-		$instance['f_facebook']     = $new_instance['f_facebook'];
-		$instance['f_google']     = $new_instance['f_google'];
-		$instance['f_viewwebsite']     = $new_instance['f_viewwebsite'];
-		$instance['f_allposts']     = $new_instance['f_allposts'];		
-		$instance['social_heading']     = $new_instance['social_heading'];
+		$instance['picsize']  = ( ! empty( $new_instance['picsize'] ) ) ? sanitize_text_field((int) $new_instance['picsize'] ) : '';
+		$instance['f_twitter'] = ( ! empty( $new_instance['f_twitter'] ) ) ? sanitize_text_field( $new_instance['f_twitter'] ) : '';
+		$instance['f_facebook'] = ( ! empty( $new_instance['f_facebook'] ) ) ? sanitize_text_field( $new_instance['f_facebook'] ) : '';
+		$instance['f_google'] = ( ! empty( $new_instance['f_google'] ) ) ? sanitize_text_field( $new_instance['f_google'] ) : '';
+		$instance['f_viewwebsite'] = ( ! empty( $new_instance['f_viewwebsite'] ) ) ? sanitize_text_field( $new_instance['f_viewwebsite'] ) : '';
+		$instance['f_allposts'] = ( ! empty( $new_instance['f_allposts'] ) ) ? sanitize_text_field( $new_instance['f_allposts'] ) : '';	
+		$instance['social_heading'] = ( ! empty( $new_instance['social_heading'] ) ) ? sanitize_text_field( $new_instance['social_heading'] ) : '';
 		return $new_instance;
 	}	  
  

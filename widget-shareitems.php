@@ -157,14 +157,14 @@ class gab_share extends WP_Widget {
 	}
 	
 	function update($new_instance, $old_instance) { 
-		$instance['title'] 		= strip_tags($new_instance['title']);
-		$instance['boxtweet']	= $new_instance['boxtweet'];
-		$instance['boxg1']	= $new_instance['boxg1'];
-		$instance['boxlike']	= $new_instance['boxlike'];
-		$instance['boxpinterest']	= $new_instance['boxpinterest'];
-		$instance['boxlinkedin']	= $new_instance['boxlinkedin'];
-		$instance['box_or_button']	= $new_instance['box_or_button'];
-		$instance['plus1']	= $new_instance['plus1'];
+		$instance['title'] 		=  ( ! empty( $new_instance['title'] ) ) ? sanitize_text_field( $new_instance['title'] ) : '';
+		$instance['boxtweet']	=  ( ! empty( $new_instance['boxtweet'] ) ) ? sanitize_text_field( $new_instance['boxtweet'] ) : '';
+		$instance['boxg1']	=  ( ! empty( $new_instance['boxg1'] ) ) ? sanitize_text_field( $new_instance['boxg1'] ) : '';
+		$instance['boxlike']	=  ( ! empty( $new_instance['boxlike'] ) ) ? sanitize_text_field( $new_instance['boxlike'] ) : '';
+		$instance['boxpinterest']	=  ( ! empty( $new_instance['boxpinterest'] ) ) ? sanitize_text_field( $new_instance['boxpinterest'] ) : '';
+		$instance['boxlinkedin']	=  ( ! empty( $new_instance['boxlinkedin'] ) ) ? sanitize_text_field( $new_instance['boxlinkedin'] ) : '';
+		$instance['box_or_button']	=  ( ! empty( $new_instance['box_or_button'] ) ) ? sanitize_text_field( $new_instance['box_or_button'] ) : '';
+		$instance['plus1']	=  ( ! empty( $new_instance['plus1'] ) ) ? sanitize_text_field( $new_instance['plus1'] ) : '';
 		$instance['fbook'] = $new_instance['fbook'] ? '1' : '0';
 		$instance['tweet'] = $new_instance['tweet'] ? '1' : '0';
 		$instance['email'] = $new_instance['email'] ? '1' : '0';
