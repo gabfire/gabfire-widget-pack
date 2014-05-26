@@ -1,5 +1,5 @@
 === Gabfire Widget Pack ===
-Contributors: gabfire
+Contributors: gabfire, kjbenk
 Tags: twitter, twitter feed, social icons, share post, text widget, about us, author badge, ajax tabs, Feedburner email subscribe, related posts, fickr images, search, popular entries, random entries, recent entries, gabfire themes
 Requires at least: 3.4
 Tested up to: 3.9
