@@ -3,7 +3,7 @@ Contributors: gabfire
 Tags: twitter, twitter feed, social icons, share post, text widget, about us, author badge, ajax tabs, Feedburner email subscribe, related posts, fickr images, search, popular entries, random entries, recent entries, gabfire themes
 Requires at least: 3.4
 Tested up to: 3.9
-Stable tag: 1.3.3
+Stable tag: 1.3.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,7 +13,7 @@ The Gabfire Widget Pack contains over a dozen useful widgets to extend your Word
 
 The Gabfire Widget Pack is a feature-packed plugin that adds the most commonly used widgets to your site. Rather than having to download several plugins by various authors, this plugin bundles together the most popular widgets. 
 
-It is maintained by the folks over at [Gabfire] (http://www.gabfirethemes.com "WordPress Themes").
+It is maintained by the folks over at http://www.gabfirethemes.com
 
 Below are the steps required to install, activate, and configure the Gabfire Widget Pack.
 
@@ -135,6 +135,9 @@ You can install the Gabfire Widget Pack from your WordPress Dashboard or manuall
 == Changelog ==
 
 New Changes
+
+= 1.3.4 =
+* Fixes minor bug with twitter widget debug errors
 
 = 1.3.3 =
 * Sanitize widget input better
