@@ -104,19 +104,31 @@ function gab_smart_widgets_css() {
 function gab_render_form() {
 	?>
 	<script type="text/javascript">
-		$(document).ready(function() {		
-			$('#textbox1').val($(this).is(':checked'));
-			
+		jQuery(document).ready(function($) {
+
+			//Change widget status
+
+			$(".gabfire_checkbox").change(function() {
+
+				if ($(this).is(":checked")) {
+					$("." + $(this).attr("id")).removeClass("deactive").addClass("active");
+				} else {
+					$("." + $(this).attr("id")).removeClass("active").addClass("deactive");
+				}
+
+			});
+
+			/*
+$('#textbox1').val($(this).is(':checked'));
+
 			$('#checkbox1').change(function() {
 				$('.mycheck').val($(this).is(':checked'));
 			});
-		});	
+*/
+		});
 	</script>
-	
-	
-	
 <div class="wrap gabfire-plugin-settings">
-	
+
 	<div id="panelheader">
 		<div id="branding">
 			<a href="http://www.gabfirethemes.com/" />
@@ -126,8 +138,8 @@ function gab_render_form() {
 		<div class="header-info">
 			Gabfire Widget Pack
 		</div>
-	</div>	
-	
+	</div>
+
 	<div class="metabox-holder has-right-sidebar ">
 		<div class="inner-sidebar">
 			<div class="postbox">
@@ -141,7 +153,7 @@ function gab_render_form() {
 					</ul>
 				</div>
 			</div>
-			
+
 			<div class="postbox">
 				<h3><span>Social</span></h3>
 				<div class="inside">
@@ -153,7 +165,7 @@ function gab_render_form() {
 						<li><a href="https://plus.google.com/106104916131754615481" target="_blank">Circle on Google+</a></li>
 					</ul>
 				</div>
-			</div>			
+			</div>
 
 			<div class="postbox">
 				<h3><span>Support</span></h3>
@@ -177,21 +189,21 @@ function gab_render_form() {
 							<p class="activate_widgets_notice"><?php _e('Activate the widgets you wish to enable and <strong>Save Changes</strong>','gabfire-widget-pack'); ?></p>
 							<input type="submit" class="button-primary" value="<?php _e('Save Changes', 'gabfire-widget-pack') ?>" />
 						</div>
-						
+
 						<div class="inside">
-					
+
 							<?php settings_fields('gab_plugin_options'); ?>
 							<?php $options = get_option('gab_options'); ?>
 							<p class="activate_widgets_notice"></p>
-							
+
 							<div class="gabfire-col-left">
-				
+
 								<?php if(isset($options['about_widget']) && $options['about_widget'] == 1) { $state = "active"; } else { $state = "deactive"; } ?>
-								<div class="gab_option_box <?php echo $state; ?>">
+								<div class="gab_options_about_widget gab_option_box <?php echo $state; ?>">
 									<div class="gab_option_box_inner">
 										<h3><?php _e('About Us','gabfire-widget-pack'); ?></h3>
 										<label class="widget_trigger">
-											<input  type="checkbox" name="gab_options[about_widget]" value="1" <?php if (isset($options['about_widget'])) { checked('1', $options['about_widget']); } ?> />
+											<input type="checkbox" class="gabfire_checkbox" id="gab_options_about_widget" name="gab_options[about_widget]" value="1" <?php if (isset($options['about_widget'])) { checked('1', $options['about_widget']); } ?> />
 											<span class="gab_switcher">
 												<span class="gab_switcheron"><?php _e('ON','gabfire-widget-pack'); ?></span>
 												<span class="gab_switcheroff"><?php _e('OFF','gabfire-widget-pack'); ?></span>
@@ -201,14 +213,14 @@ function gab_render_form() {
 										<p><?php _e('Using this Widget display a short text about a person, company or organization. The widget also can link display a link to any page or post.','gabfire-widget-pack'); ?></p>
 									</div><!-- .gab_option_box_inner -->
 								</div>
-								
+
 								<?php if(isset($options['ajaxtabs']) && $options['ajaxtabs'] == 1) { $state = "active"; } else { $state = "deactive"; } ?>
-								<div class="gab_option_box <?php echo $state; ?>">
+								<div class="gab_options_ajaxtabs gab_option_box <?php echo $state; ?>">
 									<div class="gab_option_box_inner">
 										<h3><?php _e('Posts Tabs Widget','gabfire-widget-pack'); ?></h3>
-										
+
 										<label class="widget_trigger">
-											<input  type="checkbox" name="gab_options[ajaxtabs]" value="1" <?php if (isset($options['ajaxtabs'])) { checked('1', $options['ajaxtabs']); } ?> />
+											<input type="checkbox" class="gabfire_checkbox" id="gab_options_ajaxtabs" name="gab_options[ajaxtabs]" value="1" <?php if (isset($options['ajaxtabs'])) { checked('1', $options['ajaxtabs']); } ?> />
 											<span class="gab_switcher">
 												<span class="gab_switcheron"><?php _e('ON','gabfire-widget-pack'); ?></span>
 												<span class="gab_switcheroff"><?php _e('OFF','gabfire-widget-pack'); ?></span>
@@ -218,14 +230,14 @@ function gab_render_form() {
 										<p><?php _e('Display recent, recently commented and popular posts with Ajax Tabs support. This widget will not support any Media/Video option unless you are on a Gabfire Theme.','gabfire-widget-pack'); ?></p>
 									</div><!-- .gab_option_box_inner -->
 								</div>
-																
+
 								<?php if(isset($options['authorbadge']) && $options['authorbadge'] == 1) { $state = "active"; } else { $state = "deactive"; } ?>
-								<div class="gab_option_box <?php echo $state; ?>">
+								<div class="gab_options_authorbadge gab_option_box <?php echo $state; ?>">
 									<div class="gab_option_box_inner">
 										<h3><?php _e('Author Badge','gabfire-widget-pack'); ?></h3>
-										
+
 										<label class="widget_trigger">
-											<input  type="checkbox" name="gab_options[authorbadge]" value="1" <?php if (isset($options['authorbadge'])) { checked('1', $options['authorbadge']); } ?> />
+											<input type="checkbox" class="gabfire_checkbox" id="gab_options_authorbadge" name="gab_options[authorbadge]" value="1" <?php if (isset($options['authorbadge'])) { checked('1', $options['authorbadge']); } ?> />
 											<span class="gab_switcher">
 												<span class="gab_switcheron"><?php _e('ON','gabfire-widget-pack'); ?></span>
 												<span class="gab_switcheroff"><?php _e('OFF','gabfire-widget-pack'); ?></span>
@@ -235,14 +247,14 @@ function gab_render_form() {
 										<p><?php _e('This widget will display only at Author and Single Post pages and if post author has any bio information entered into his/her profile','gabfire-widget-pack'); ?></p>
 									</div><!-- .gab_option_box_inner -->
 								</div>
-							
+
 								<?php if(isset($options['social']) && $options['social'] == 1) { $state = "active"; } else { $state = "deactive"; } ?>
-								<div class="gab_option_box <?php echo $state; ?>">
+								<div class="gab_options_social gab_option_box <?php echo $state; ?>">
 									<div class="gab_option_box_inner">
 										<h3><?php _e('Social Icons','gabfire-widget-pack'); ?></h3>
-										
+
 										<label class="widget_trigger">
-											<input  type="checkbox" name="gab_options[social]" value="1" <?php if (isset($options['social'])) { checked('1', $options['social']); } ?> />
+											<input  type="checkbox" class="gabfire_checkbox" id="gab_options_social" name="gab_options[social]" value="1" <?php if (isset($options['social'])) { checked('1', $options['social']); } ?> />
 											<span class="gab_switcher">
 												<span class="gab_switcheron"><?php _e('ON','gabfire-widget-pack'); ?></span>
 												<span class="gab_switcheroff"><?php _e('OFF','gabfire-widget-pack'); ?></span>
@@ -251,15 +263,15 @@ function gab_render_form() {
 										</label>
 										<p><?php _e('Get connected with your visitors and let them know where they could find you on social platforms','gabfire-widget-pack'); ?></p>
 									</div><!-- .gab_option_box_inner -->
-								</div>				
-							
+								</div>
+
 								<?php if(isset($options['feedburner']) && $options['feedburner'] == 1) { $state = "active"; } else { $state = "deactive"; } ?>
-								<div class="gab_option_box <?php echo $state; ?>">
+								<div class="gab_options_feedburner gab_option_box <?php echo $state; ?>">
 									<div class="gab_option_box_inner">
 										<h3><?php _e('Feedburner Email Subscribe','gabfire-widget-pack'); ?></h3>
-										
+
 										<label class="widget_trigger">
-											<input  type="checkbox" name="gab_options[feedburner]" value="1" <?php if (isset($options['feedburner'])) { checked('1', $options['feedburner']); } ?> />
+											<input  type="checkbox" class="gabfire_checkbox" id="gab_options_feedburner" name="gab_options[feedburner]" value="1" <?php if (isset($options['feedburner'])) { checked('1', $options['feedburner']); } ?> />
 											<span class="gab_switcher">
 												<span class="gab_switcheron"><?php _e('ON','gabfire-widget-pack'); ?></span>
 												<span class="gab_switcheroff"><?php _e('OFF','gabfire-widget-pack'); ?></span>
@@ -268,15 +280,15 @@ function gab_render_form() {
 										</label>
 										<p><?php _e('Display an input field where your visitors could easily signup to Feedburner Email subscription list.','gabfire-widget-pack'); ?></p>
 									</div><!-- .gab_option_box_inner -->
-								</div>	
-							
+								</div>
+
 								<?php if(isset($options['popular_random']) && $options['popular_random'] == 1) { $state = "active"; } else { $state = "deactive"; } ?>
-								<div class="gab_option_box <?php echo $state; ?>">
-									<div class="gab_option_box_inner">				
+								<div class="gab_options_popular_random gab_option_box <?php echo $state; ?>">
+									<div class="gab_option_box_inner">
 										<h3><?php _e('Popular/Random Entries','gabfire-widget-pack'); ?></h3>
-										
+
 										<label class="widget_trigger">
-											<input  type="checkbox" name="gab_options[popular_random]" value="1" <?php if (isset($options['popular_random'])) { checked('1', $options['popular_random']); } ?> />
+											<input  type="checkbox" class="gabfire_checkbox" id="gab_options_popular_random" name="gab_options[popular_random]" value="1" <?php if (isset($options['popular_random'])) { checked('1', $options['popular_random']); } ?> />
 											<span class="gab_switcher">
 												<span class="gab_switcheron"><?php _e('ON','gabfire-widget-pack'); ?></span>
 												<span class="gab_switcheroff"><?php _e('OFF','gabfire-widget-pack'); ?></span>
@@ -285,19 +297,19 @@ function gab_render_form() {
 										</label>
 										<p><?php _e('Gabfire Random/Popular/Recent Posts: Display random, recent or most popular posts.','gabfire-widget-pack'); ?></p>
 									</div><!-- .gab_option_box_inner -->
-								</div>				
-							
+								</div>
+
 							</div><!-- .gabfire-col-left -->
-							
-							<div class="gabfire-col-right">					
-							
+
+							<div class="gabfire-col-right">
+
 								<?php if(isset($options['flickrrss']) && $options['flickrrss'] == 1) { $state = "active"; } else { $state = "deactive"; } ?>
-								<div class="gab_option_box <?php echo $state; ?>">
+								<div class="gab_options_flickrrss gab_option_box <?php echo $state; ?>">
 									<div class="gab_option_box_inner">
 										<h3><?php _e('Flickr Images','gabfire-widget-pack'); ?></h3>
-										
+
 										<label class="widget_trigger">
-											<input  type="checkbox" name="gab_options[flickrrss]" value="1" <?php if (isset($options['flickrrss'])) { checked('1', $options['flickrrss']); } ?> />
+											<input  type="checkbox" class="gabfire_checkbox" id="gab_options_flickrrss" name="gab_options[flickrrss]" value="1" <?php if (isset($options['flickrrss'])) { checked('1', $options['flickrrss']); } ?> />
 											<span class="gab_switcher">
 												<span class="gab_switcheron"><?php _e('ON','gabfire-widget-pack'); ?></span>
 												<span class="gab_switcheroff"><?php _e('OFF','gabfire-widget-pack'); ?></span>
@@ -306,15 +318,15 @@ function gab_render_form() {
 										</label>
 										<p><?php _e('Choose the criteria and display Flickr photos on your site.','gabfire-widget-pack'); ?></p>
 									</div><!-- .gab_option_box_inner -->
-								</div>							
-							
+								</div>
+
 								<?php if(isset($options['archive_widget']) && $options['archive_widget'] == 1) { $state = "active"; } else { $state = "deactive"; } ?>
-								<div class="gab_option_box <?php echo $state; ?>">
+								<div class="gab_options_archive_widget gab_option_box <?php echo $state; ?>">
 									<div class="gab_option_box_inner">
 										<h3><?php _e('Archive Search','gabfire-widget-pack'); ?></h3>
-										
+
 										<label class="widget_trigger">
-											<input  type="checkbox" name="gab_options[archive_widget]" value="1" <?php if (isset($options['archive_widget'])) { checked('1', $options['archive_widget']); } ?> />
+											<input  type="checkbox" class="gabfire_checkbox" id="gab_options_archive_widget" name="gab_options[archive_widget]" value="1" <?php if (isset($options['archive_widget'])) { checked('1', $options['archive_widget']); } ?> />
 											<span class="gab_switcher">
 												<span class="gab_switcheron"><?php _e('ON','gabfire-widget-pack'); ?></span>
 												<span class="gab_switcheroff"><?php _e('OFF','gabfire-widget-pack'); ?></span>
@@ -323,15 +335,15 @@ function gab_render_form() {
 										</label>
 										<p><?php _e('A quick option for your visitors to search in archive of your website.','gabfire-widget-pack'); ?></p>
 									</div><!-- .gab_option_box_inner -->
-								</div>				
-							
+								</div>
+
 								<?php if(isset($options['relatedposts']) && $options['relatedposts'] == 1) { $state = "active"; } else { $state = "deactive"; } ?>
-								<div class="gab_option_box <?php echo $state; ?>">
-									<div class="gab_option_box_inner">				
+								<div class="gab_options_relatedposts gab_option_box <?php echo $state; ?>">
+									<div class="gab_option_box_inner">
 										<h3><?php _e('Related Posts','gabfire-widget-pack'); ?></h3>
-										
+
 										<label class="widget_trigger">
-											<input  type="checkbox" name="gab_options[relatedposts]" value="1" <?php if (isset($options['relatedposts'])) { checked('1', $options['relatedposts']); } ?> />
+											<input  type="checkbox" class="gabfire_checkbox" id="gab_options_relatedposts" name="gab_options[relatedposts]" value="1" <?php if (isset($options['relatedposts'])) { checked('1', $options['relatedposts']); } ?> />
 											<span class="gab_switcher">
 												<span class="gab_switcheron"><?php _e('ON','gabfire-widget-pack'); ?></span>
 												<span class="gab_switcheroff"><?php _e('OFF','gabfire-widget-pack'); ?></span>
@@ -341,14 +353,14 @@ function gab_render_form() {
 										<p><?php _e('Display related posts based on similar tags between posts.','gabfire-widget-pack'); ?></p>
 									</div><!-- .gab_option_box_inner -->
 								</div>
-													
+
 								<?php if(isset($options['search']) && $options['search'] == 1) { $state = "active"; } else { $state = "deactive"; } ?>
-								<div class="gab_option_box <?php echo $state; ?>">
-									<div class="gab_option_box_inner">
+								<div class="gab_options_search gab_option_box <?php echo $state; ?>">
+									<div class="gab_options_search gab_option_box_inner">
 										<h3><?php _e('Search','gabfire-widget-pack'); ?></h3>
-										
+
 										<label class="widget_trigger">
-											<input  type="checkbox" name="gab_options[search]" value="1" <?php if (isset($options['search'])) { checked('1', $options['search']); } ?> />
+											<input  type="checkbox" class="gabfire_checkbox" id="gab_options_search" name="gab_options[search]" value="1" <?php if (isset($options['search'])) { checked('1', $options['search']); } ?> />
 											<span class="gab_switcher">
 												<span class="gab_switcheron"><?php _e('ON','gabfire-widget-pack'); ?></span>
 												<span class="gab_switcheroff"><?php _e('OFF','gabfire-widget-pack'); ?></span>
@@ -358,14 +370,14 @@ function gab_render_form() {
 										<p><?php _e('Replace default WordPress search form with nicely designed Gabfire Search Forms ','gabfire-widget-pack'); ?></p>
 									</div><!-- .gab_option_box_inner -->
 								</div>
-												
+
 								<?php if(isset($options['share']) && $options['share'] == 1) { $state = "active"; } else { $state = "deactive"; } ?>
-								<div class="gab_option_box <?php echo $state; ?>">
-									<div class="gab_option_box_inner">				
+								<div class="gab_options_share gab_option_box <?php echo $state; ?>">
+									<div class="gab_option_box_inner">
 										<h3><?php _e('Share Posts','gabfire-widget-pack'); ?></h3>
-										
+
 										<label class="widget_trigger">
-											<input  type="checkbox" name="gab_options[share]" value="1" <?php if (isset($options['share'])) { checked('1', $options['share']); } ?> />
+											<input  type="checkbox" class="gabfire_checkbox" id="gab_options_share" name="gab_options[share]" value="1" <?php if (isset($options['share'])) { checked('1', $options['share']); } ?> />
 											<span class="gab_switcher">
 												<span class="gab_switcheron"><?php _e('ON','gabfire-widget-pack'); ?></span>
 												<span class="gab_switcheroff"><?php _e('OFF','gabfire-widget-pack'); ?></span>
@@ -375,14 +387,14 @@ function gab_render_form() {
 										<p><?php _e('Get Social and let your visitors to share your entries on social platforms','gabfire-widget-pack'); ?></p>
 									</div><!-- .gab_option_box_inner -->
 								</div>
-								
+
 								<?php if(isset($options['text_widget']) && $options['text_widget'] == 1) { $state = "active"; } else { $state = "deactive"; } ?>
-								<div class="gab_option_box <?php echo $state; ?>">	
+								<div class="gab_options_text_widget gab_option_box <?php echo $state; ?>">
 									<div class="gab_option_box_inner">
 										<h3><?php _e('Gabfire Text+ Widget','gabfire-widget-pack'); ?></h3>
-										
+
 										<label class="widget_trigger">
-											<input  type="checkbox" name="gab_options[text_widget]" value="1" <?php if (isset($options['text_widget'])) { checked('1', $options['text_widget']); } ?> />
+											<input  type="checkbox" class="gabfire_checkbox" id="gab_options_text_widget" name="gab_options[text_widget]" value="1" <?php if (isset($options['text_widget'])) { checked('1', $options['text_widget']); } ?> />
 											<span class="gab_switcher">
 												<span class="gab_switcheron"><?php _e('ON','gabfire-widget-pack'); ?></span>
 												<span class="gab_switcheroff"><?php _e('OFF','gabfire-widget-pack'); ?></span>
@@ -392,14 +404,14 @@ function gab_render_form() {
 										<p><?php _e('Gabfire Text Widget: Display a regular text in a nicely designed form.','gabfire-widget-pack'); ?></p>
 									</div><!-- .gab_option_box_inner -->
 								</div>
-													
+
 								<?php if(isset($options['contact_info']) && $options['contact_info'] == 1) { $state = "active"; } else { $state = "deactive"; } ?>
-								<div class="gab_option_box <?php echo $state; ?>">
+								<div class="gab_options_contact_info gab_option_box <?php echo $state; ?>">
 									<div class="gab_option_box_inner">
 										<h3><?php _e('Contact Information','gabfire-widget-pack'); ?></h3>
-										
+
 										<label class="widget_trigger">
-											<input  type="checkbox" name="gab_options[contact_info]" value="1" <?php if (isset($options['contact_info'])) { checked('1', $options['contact_info']); } ?> />
+											<input  type="checkbox" class="gabfire_checkbox" id="gab_options_contact_info" name="gab_options[contact_info]" value="1" <?php if (isset($options['contact_info'])) { checked('1', $options['contact_info']); } ?> />
 											<span class="gab_switcher">
 												<span class="gab_switcheron"><?php _e('ON','gabfire-widget-pack'); ?></span>
 												<span class="gab_switcheroff"><?php _e('OFF','gabfire-widget-pack'); ?></span>
@@ -408,19 +420,19 @@ function gab_render_form() {
 										</label>
 										<p><?php _e('Display company logo and adress and phone number to your visitors','gabfire-widget-pack'); ?></p>
 									</div><!-- .gab_option_box_inner -->
-								</div>		
-								
-							</div><!-- .gabfire-col-right -->		
-							
+								</div>
+
+							</div><!-- .gabfire-col-right -->
+
 							<div class="clearfix"></div>
-								
+
 							<?php if(isset($options['recent_tweets']) && $options['recent_tweets'] == 1) { $state = "active"; } else { $state = "deactive"; } ?>
-							<div class="gab_option_box <?php echo $state; ?>">
+							<div class="gab_options_recent_tweets gab_option_box <?php echo $state; ?>">
 								<div class="gab_option_box_inner">
 									<h3><?php _e('Recent Tweets','gabfire-widget-pack'); ?></h3>
-									
+
 									<label class="widget_trigger">
-										<input  type="checkbox" name="gab_options[recent_tweets]" value="1" <?php if (isset($options['recent_tweets'])) { checked('1', $options['recent_tweets']); } ?> />
+										<input  type="checkbox" class="gabfire_checkbox" id="gab_options_recent_tweets" name="gab_options[recent_tweets]" value="1" <?php if (isset($options['recent_tweets'])) { checked('1', $options['recent_tweets']); } ?> />
 										<span class="gab_switcher">
 											<span class="gab_switcheron"><?php _e('ON','gabfire-widget-pack'); ?></span>
 											<span class="gab_switcheroff"><?php _e('OFF','gabfire-widget-pack'); ?></span>
@@ -428,42 +440,42 @@ function gab_render_form() {
 										</span>
 									</label>
 									<p><?php _e('Get recent Tweets based on an username or #hashtag. Visit <a target="_blank" href="https://dev.twitter.com/apps">https://dev.twitter.com/apps</a> to get your application and secret keys.','gabfire-widget-pack'); ?></p>
-									
+
 									<p><?php _e('','gabfire-widget-pack'); ?></p>
 									<div class="gabfire-col-left">
-										<?php _e('Consumer Key','gabfire-widget-pack'); ?><input type="text" class="widefat" size="57" name="gab_options[key]" value="<?php echo $options['key']; ?>" />
-										<?php _e('Consumer Secret','gabfire-widget-pack'); ?><input type="text" class="widefat" size="57" name="gab_options[secret]" value="<?php echo $options['secret']; ?>" />
+										<?php _e('Consumer Key','gabfire-widget-pack'); ?><input type="text" class="widefat" size="57" name="gab_options[key]" value="<?php echo esc_attr($options['key']); ?>" />
+										<?php _e('Consumer Secret','gabfire-widget-pack'); ?><input type="text" class="widefat" size="57" name="gab_options[secret]" value="<?php echo esc_attr($options['secret']); ?>" />
 									</div>
 									<div class="gabfire-col-right">
-										<?php _e('Access Token Key','gabfire-widget-pack'); ?><input type="text" class="widefat" size="57" name="gab_options[token_key]" value="<?php echo $options['token_key']; ?>" />
-										<?php _e('Access Token Secret','gabfire-widget-pack'); ?><input type="text" class="widefat" size="57" name="gab_options[token_secret]" value="<?php echo $options['token_secret']; ?>" />
+										<?php _e('Access Token Key','gabfire-widget-pack'); ?><input type="text" class="widefat" size="57" name="gab_options[token_key]" value="<?php echo esc_attr($options['token_key']); ?>" />
+										<?php _e('Access Token Secret','gabfire-widget-pack'); ?><input type="text" class="widefat" size="57" name="gab_options[token_secret]" value="<?php echo esc_attr($options['token_secret']); ?>" />
 									</div>
 									<div class="clearfix"></div>
 								</div><!-- .gab_option_box_inner -->
-							</div>							
+							</div>
 						</div> <!-- .inside -->
-						
+
 						<div class="gabfire_options_submit submit-bottom">
 							<p class="activate_widgets_notice"><?php _e('Activate the widgets you wish to enable and <strong>Save Changes</strong>','gabfire-widget-pack'); ?></p>
 							<input type="submit" class="button-primary" value="<?php _e('Save Changes', 'gabfire-widget-pack') ?>" />
-						</div>						
+						</div>
 					</div><!-- .postbox -->
 				</form>
 			</div> <!-- #post-body-content -->
 		</div> <!-- #post-body -->
 
 	</div> <!-- .metabox-holder -->
-	
-</div> <!-- .wrap -->	
 
-<?php	
+</div> <!-- .wrap -->
+
+<?php
 }
 
 // Sanitize and validate input. Accepts an array, return a sanitized array.
 function gab_validate_options($input) {
 	// strip html from textboxes
 	// Sanitize textbox input (strip html tags, and escape characters)
-	$input['key'] =  wp_filter_nohtml_kses($input['key']); 
+	$input['key'] =  wp_filter_nohtml_kses($input['key']);
 	$input['secret'] =  wp_filter_nohtml_kses($input['secret']);
 	$input['token_key'] =  wp_filter_nohtml_kses($input['token_key']);
 	$input['token_secret'] =  wp_filter_nohtml_kses($input['token_secret']);
