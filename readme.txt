@@ -7,11 +7,11 @@ Stable tag: 1.3.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-The Gabfire Widget Pack contains over a dozen useful widgets to extend your WordPress site. It is a free plugin that will work with ANY theme. 
+The Gabfire Widget Pack contains over a dozen useful widgets to extend your WordPress site. It is a free plugin that will work with ANY theme.
 
 == Description ==
 
-The Gabfire Widget Pack is a feature-packed plugin that adds the most commonly used widgets to your site. Rather than having to download several plugins by various authors, this plugin bundles together the most popular widgets. 
+The Gabfire Widget Pack is a feature-packed plugin that adds the most commonly used widgets to your site. Rather than having to download several plugins by various authors, this plugin bundles together the most popular widgets.
 
 It is maintained by the folks over at http://www.gabfirethemes.com
 
@@ -23,14 +23,14 @@ Use this widget to showcase your recent tweets from Twitter on your WordPress bl
 * By Username
 * By Hashtag
 
-This widget uses the latest Twitter oAuth method to retrieve tweets to ensure compatibility. 
+This widget uses the latest Twitter oAuth method to retrieve tweets to ensure compatibility.
 
 = Widget: Archive Search =
 Give your users the option to search to their heart's content. This powerful widget provides 3 methods to search:
 
 * By Archive Month
 * By Category
-* By Keyword using Google Search 
+* By Keyword using Google Search
 
 This is great widget for content-heavy sites.
 
@@ -40,7 +40,7 @@ Pictures pictures pictures. That's what your site really needs. Well, grab them 
 * Select images from a specific user, group, or all of Flickr
 * Retrieve images based on tag
 * Determine order of images
-* Determine the number and size of images 
+* Determine the number and size of images
 
 This is one of those quick set it and forget it widgets that does wonders for your site.
 
@@ -48,21 +48,21 @@ This is one of those quick set it and forget it widgets that does wonders for yo
 Your visitors need a search function to explore your site. Luckily, this widget gives you two functional styles to choose from that can be placed into any widget zone.
 
 * Set your label
-* Set your style and background 
+* Set your style and background
 
 Search is not dead!
 
 = Widget: Social Icons =
 Every site has a social media presence. Let your visitors find your across any of the social media platforms with this widget.
 
-* Simply provide links to your social media networks 
+* Simply provide links to your social media networks
 
 = Widget: Post Tabs =
 A sleek Ajax tabs widget that offers a convenient way to showcase your content. You can choose from 3 types of tabs:
 
 * Recent Posts
 * Recent Comments
-* Popular Posts (based on tags) 
+* Popular Posts (based on tags)
 
 In addition, the Post Tabs widget offers a light and dark color scheme, ability to show post meta details and avatars, and choose the number of posts to display.
 
@@ -72,7 +72,7 @@ Give credit where it's due with this unique Author Badge that showcases the foll
 * Author's Bio
 * Author's Gravatar (if any)
 * Author's social media links
-* Link to Author's Posts 
+* Link to Author's Posts
 
 Author badge shows at single post and author pages only. This badge will not shown if Author bio is left empty. Go to User profile page to enter Facebook, Twitter, Google+, and Author website URL details.
 
@@ -88,21 +88,21 @@ Get more traffic and cross promote your posts with this social sharing widget. I
 * Facebook Like
 * Twitter Share
 * Google+ Box
-* Pinterest Pin 
+* Pinterest Pin
 
 = Widget: Text+ Widget =
-A slight twist on the original. This text widget gives you the ability to have an icon and button that links to any post or page of your choice. 
+A slight twist on the original. This text widget gives you the ability to have an icon and button that links to any post or page of your choice.
 
-For more details, visit [Gabfire Themes] (http://www.gabfirethemes.com "Best WordPress Themes"). 
+For more details, visit [Gabfire Themes] (http://www.gabfirethemes.com "Best WordPress Themes").
 
 == Installation ==
 
-You can install the Gabfire Widget Pack from your WordPress Dashboard or manually via FTP. 
+You can install the Gabfire Widget Pack from your WordPress Dashboard or manually via FTP.
 
 = From WordPress Dashboard =
 
-# Navigate to 'Plugins -> Add New' from your WordPress dashboard. 
-# Search for `Gabfire Widget Pack` and install it. 
+# Navigate to 'Plugins -> Add New' from your WordPress dashboard.
+# Search for `Gabfire Widget Pack` and install it.
 # Activate the plugin from Plugins menu.
 # Enable the widgets you wish to activate from Appearance -> Gabfire Widget Pack
 # Add any widget to your widget zone from Appearance -> Widgets and configure the widget options.
@@ -134,7 +134,8 @@ You can install the Gabfire Widget Pack from your WordPress Dashboard or manuall
 
 == Changelog ==
 
-New Changes
+= 1.3.5 =
+* Fixes bug with internationalization
 
 = 1.3.4 =
 * Fixes minor bug with twitter widget debug errors
