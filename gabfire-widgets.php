@@ -6,17 +6,17 @@
 	Author: Gabfire Themes
 	Version: 1.3.4
 	Author URI: http://www.gabfirethemes.com
-	
+
     Copyright 2013 Gabfire Themes (email : info@gabfire.com)
 
     This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License, version 2, as 
+    it under the terms of the GNU General Public License, version 2, as
     published by the Free Software Foundation.
 
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.    
+    GNU General Public License for more details.
 */
 
 define( 'GABFIRE_WIDGETS_VERSION', '1.3.4');
@@ -32,6 +32,12 @@ if (!function_exists('gabfire_starterpack_css')) {
 	}
 }
 
+add_action('init', 'gabfire_widget_pack_load_plugin_textdomain');
+
+function gabfire_widget_pack_load_plugin_textdomain() {
+	load_plugin_textdomain('gabfire-widget-pack', false, basename( dirname( __FILE__ ) ) . '/lang');
+}
+
 require_once( GABFIRE_WIDGETS_DIR .  '/admin/options.php' );
 $gabfire_options = get_option('gab_options');
 
@@ -42,7 +48,7 @@ $gabfire_options = get_option('gab_options');
 /*
  * Check to see if there is an option if not set to default option
  */
- 
+
 $gabfire_default_option = array(
 	'about_widget' 		=> 0,
 	'contact_info' 		=> 0,
