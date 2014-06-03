@@ -3,22 +3,25 @@ if (!is_admin()) add_action( 'wp_print_scripts', 'gabfire_ajaxtabs_js');
 
 if (!function_exists('gabfire_ajaxtabs_js')) {
 	function gabfire_ajaxtabs_js() {
-		wp_deregister_script( 'jquery' ); 
+		wp_deregister_script( 'jquery' );
 		wp_enqueue_script('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js');
-		wp_enqueue_script('jquerytools', plugins_url() .'/gabfire-widget-pack/js/jquery.tools.min.js',array( 'jquery' ));	
+		wp_enqueue_script('jquerytools', plugins_url() .'/gabfire-widget-pack/js/jquery.tools.min.js',array( 'jquery' ));
 	}
 }
 
 /* AJAX TABS */
 class gabfire_ajaxtabs extends WP_Widget {
- 
+
 	function gabfire_ajaxtabs() {
 		$widget_ops = array( 'classname' => 'gabfire_ajaxtabs', 'description' => 'Display recent entries and comments (ajax tab supported)' );
 		$control_ops = array( 'width' => 250, 'height' => 350, 'id_base' => 'gabfire_ajaxtabs' );
 		$this->WP_Widget( 'gabfire_ajaxtabs', 'Gabfire: Posts Tabs Widget', $widget_ops, $control_ops);
 	}
- 
-	function widget($args, $instance) {	  
+
+	function widget($args, $instance) {
+
+		global $post;
+
 		extract( $args );
 		$title	= $instance['title'];
 		$post_label	= $instance['post_label'];
@@ -47,7 +50,7 @@ class gabfire_ajaxtabs extends WP_Widget {
 					<?php if (intval($popular_nr) > 0 ) { ?><li class="gab_secondtab"><a href="#third"><?php echo esc_attr( $popular_label ); ?></a></li><?php } ?>
 					<?php if (intval($comment_nr) > 0 ) { ?><li class="gab_thirdtab"><a href="#second"><?php echo esc_attr( $comment_label ); ?></a></li><?php } ?>
 				</ul>
-				
+
 				<div class="panes">
 					<?php if (intval($post_nr) > 0 ) { ?>
 					<div>
@@ -56,9 +59,9 @@ class gabfire_ajaxtabs extends WP_Widget {
 						<?php } ?>
 						<ul>
 							<?php
-							$count=1;
-							$args = array( 'posts_per_page'=> $post_nr, );						
-							$gab_query = new WP_Query();$gab_query->query($args); 
+							$count = 1;
+							$args = array( 'posts_per_page'=> $post_nr, );
+							$gab_query = new WP_Query();$gab_query->query($args);
 							while ($gab_query->have_posts()) : $gab_query->the_post();
 							?>
 								<li>
@@ -72,8 +75,8 @@ class gabfire_ajaxtabs extends WP_Widget {
 											'catch_image' => 0,
 											'enable_thumb' => 1,
 											'resize_type' => 'c',
-											'media_width' => 35, 
-											'media_height' => 35, 
+											'media_width' => 35,
+											'media_height' => 35,
 											'enable_default' => 0
 										));
 									} else {
@@ -88,7 +91,7 @@ class gabfire_ajaxtabs extends WP_Widget {
 						</ul>
 					</div>
 					<?php } ?>
-					
+
 					<?php if (intval($popular_nr) > 0 ) { ?>
 					<div>
 						<?php if($popular_title) { ?>
@@ -97,8 +100,8 @@ class gabfire_ajaxtabs extends WP_Widget {
 						<ul>
 							<?php
 							$count=1;
-							$args = array( 'posts_per_page'=> $popular_nr, 'orderby' => 'comment_count');						
-							$gab_query = new WP_Query();$gab_query->query($args); 
+							$args = array( 'posts_per_page'=> $popular_nr, 'orderby' => 'comment_count');
+							$gab_query = new WP_Query();$gab_query->query($args);
 							while ($gab_query->have_posts()) : $gab_query->the_post();
 							?>
 								<li>
@@ -112,13 +115,13 @@ class gabfire_ajaxtabs extends WP_Widget {
 											'catch_image' => of_get_option('of_catch_img', 0),
 											'enable_thumb' => 1,
 											'resize_type' => 'c',
-											'media_width' => 35, 
-											'media_height' => 35, 
+											'media_width' => 35,
+											'media_height' => 35,
 											'enable_default' => 0
 										));
-									} else { 
+									} else {
 										echo get_the_post_thumbnail($post->ID, 'thumbnail');
-									}							
+									}
 									?>
 									<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'gabfire-widget-pack' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
 									<?php if($postmeta) { ?>
@@ -143,7 +146,7 @@ class gabfire_ajaxtabs extends WP_Widget {
 								);
 								$comments = get_comments($args);
 								foreach($comments as $comment) :
-									echo '<li class="no-list-image">'; 
+									echo '<li class="no-list-image">';
 										if($avatar) {
 											echo get_avatar( $comment->comment_author_email, 35 );
 										}
@@ -156,10 +159,10 @@ class gabfire_ajaxtabs extends WP_Widget {
 					<?php } ?>
 				</div>
 			</div>
-	
-			<?php 
-			
-		echo $after_widget; 
+
+			<?php
+
+		echo $after_widget;
 	}
 
 	function update($new_instance, $old_instance) {
@@ -168,24 +171,24 @@ class gabfire_ajaxtabs extends WP_Widget {
 		$instance['postmeta']	= $new_instance['postmeta'] ? '1' : '0';
 		$instance['a_avatar']	= $new_instance['a_avatar'] ? '1' : '0';
 		$instance['colorsc']	= $new_instance['colorsc'] ? '1' : '0';
-		$instance['post_nr'] = (int) $new_instance['post_nr'];  
+		$instance['post_nr'] = (int) $new_instance['post_nr'];
 		$instance['post_title']	= ( ! empty( $new_instance['post_title'] ) ) ? sanitize_text_field( $new_instance['post_title'] ) : '';
 		$instance['popular_title']	= ( ! empty( $new_instance['popular_title'] ) ) ? sanitize_text_field( $new_instance['popular_title'] ) : '';
 		$instance['comments_title']	= ( ! empty( $new_instance['comments_title'] ) ) ? sanitize_text_field( $new_instance['comments_title'] ) : '';
 		$instance['comment_label']	= ( ! empty( $new_instance['comment_label'] ) ) ? sanitize_text_field( $new_instance['comment_label'] ) : '';
 		$instance['popular_label']	= ( ! empty( $new_instance['popular_label'] ) ) ? sanitize_text_field( $new_instance['popular_label'] ) : '';
-		$instance['comment_nr'] 	= (int) $new_instance['comment_nr'];  
-		$instance['popular_nr'] 	= (int) $new_instance['popular_nr']; 
+		$instance['comment_nr'] 	= (int) $new_instance['comment_nr'];
+		$instance['popular_nr'] 	= (int) $new_instance['popular_nr'];
 		return $new_instance;
 	}
- 
+
 	function form($instance) {
-		$defaults = array( 
+		$defaults = array(
 			'title' => 'Posts',
 			'post_label' => 'Latest',
 			'comment_label' => 'Comments',
 			'popular_label' => 'Popular',
-			'post_nr' => '5', 
+			'post_nr' => '5',
 			'comment_nr' => '5',
 			'popular_nr' => '5',
 			'post_title' => '',
@@ -195,91 +198,91 @@ class gabfire_ajaxtabs extends WP_Widget {
 			'postmeta' => '1',
 			'a_avatar' => '1',
 		);
-		$instance = wp_parse_args( (array) $instance, $defaults ); 
+		$instance = wp_parse_args( (array) $instance, $defaults );
 		?>
 
 		<p>
 			<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title','gabfire-widget-pack'); ?></label>
 			<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($instance['title']); ?>" />
 		</p>
-		
+
 		<p>
 			<label for="<?php echo $this->get_field_id('post_label'); ?>"><?php _e('Recent Posts tab label','gabfire-widget-pack'); ?></label>
 			<input class="widefat" id="<?php echo $this->get_field_id('post_label'); ?>" name="<?php echo $this->get_field_name('post_label'); ?>" type="text" value="<?php echo esc_attr($instance['post_label']); ?>" />
 		</p>
-		
+
 		<p>
 			<label for="<?php echo $this->get_field_id('comment_label'); ?>"><?php _e('Comments tab label','gabfire-widget-pack'); ?></label>
 			<input class="widefat" id="<?php echo $this->get_field_id('comment_label'); ?>" name="<?php echo $this->get_field_name('comment_label'); ?>" type="text" value="<?php echo esc_attr($instance['comment_label']); ?>" />
 		</p>
-		
+
 		<p>
 			<label for="<?php echo $this->get_field_id('popular_label'); ?>"><?php _e('Popular tab label','gabfire-widget-pack'); ?></label>
 			<input class="widefat" id="<?php echo $this->get_field_id('popular_label'); ?>" name="<?php echo $this->get_field_name('popular_label'); ?>" type="text" value="<?php echo esc_attr($instance['popular_label']); ?>" />
 		</p>
-		
+
 		<p>
 			<label for="<?php echo $this->get_field_id('post_title'); ?>"><?php _e('Recent Posts List Title','gabfire-widget-pack'); ?></label>
 			<input class="widefat" id="<?php echo $this->get_field_id('post_title'); ?>" name="<?php echo $this->get_field_name('post_title'); ?>" type="text" value="<?php echo esc_attr($instance['post_title']); ?>" />
 		</p>
-		
+
 		<p>
 			<label for="<?php echo $this->get_field_id('popular_title'); ?>"><?php _e('Popular Posts List Title','gabfire-widget-pack'); ?></label>
 			<input class="widefat" id="<?php echo $this->get_field_id('popular_title'); ?>" name="<?php echo $this->get_field_name('popular_title'); ?>" type="text" value="<?php echo esc_attr($instance['popular_title']); ?>" />
-		</p>		
-		
+		</p>
+
 		<p>
 			<label for="<?php echo $this->get_field_id('comments_title'); ?>"><?php _e('Comments List Title','gabfire-widget-pack'); ?></label>
 			<input class="widefat" id="<?php echo $this->get_field_id('comments_title'); ?>" name="<?php echo $this->get_field_name('comments_title'); ?>" type="text" value="<?php echo esc_attr($instance['comments_title']); ?>" />
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id( 'colorsc' ); ?>"><?php _e('Color Scheme','gabfire-widget-pack'); ?></label> 
+			<label for="<?php echo $this->get_field_id( 'colorsc' ); ?>"><?php _e('Color Scheme','gabfire-widget-pack'); ?></label>
 			<select id="<?php echo $this->get_field_id( 'colorsc' ); ?>" name="<?php echo $this->get_field_name( 'colorsc' ); ?>">
 				<option value="1" <?php selected( $instance['colorsc'], '1' ); ?>><?php _e('Light','gabfire-widget-pack'); ?></option>
-				<option value="0" <?php selected( $instance['colorsc'], '0' ); ?>><?php _e('Dark','gabfire-widget-pack'); ?></option>	
+				<option value="0" <?php selected( $instance['colorsc'], '0' ); ?>><?php _e('Dark','gabfire-widget-pack'); ?></option>
 			</select>
-		</p>			
-		
+		</p>
+
 		<p>
-			<label for="<?php echo $this->get_field_id( 'postmeta' ); ?>"><?php _e('Display post meta below title','gabfire-widget-pack'); ?></label> 
+			<label for="<?php echo $this->get_field_id( 'postmeta' ); ?>"><?php _e('Display post meta below title','gabfire-widget-pack'); ?></label>
 			<select id="<?php echo $this->get_field_id( 'postmeta' ); ?>" name="<?php echo $this->get_field_name( 'postmeta' ); ?>">
 				<option value="1" <?php selected( $instance['postmeta'] , '1' ); ?>><?php _e('Enable','gabfire-widget-pack'); ?></option>
-				<option value="0" <?php selected( $instance['postmeta'] , '0' ); ?>><?php _e('Disable','gabfire-widget-pack'); ?></option>	
+				<option value="0" <?php selected( $instance['postmeta'] , '0' ); ?>><?php _e('Disable','gabfire-widget-pack'); ?></option>
 			</select>
-		</p>	
-		
+		</p>
+
 		<p>
-			<label for="<?php echo $this->get_field_id( 'a_avatar' ); ?>"><?php _e('Display author avatar for comments','gabfire-widget-pack'); ?></label> 
+			<label for="<?php echo $this->get_field_id( 'a_avatar' ); ?>"><?php _e('Display author avatar for comments','gabfire-widget-pack'); ?></label>
 			<select id="<?php echo $this->get_field_id( 'a_avatar' ); ?>" name="<?php echo $this->get_field_name( 'a_avatar' ); ?>">
 				<option value="1" <?php selected( $instance['a_avatar'], '1' ); ?>><?php _e('Enable','gabfire-widget-pack'); ?></option>
-				<option value="0" <?php selected( $instance['a_avatar'], '0' ); ?>><?php _e('Disable','gabfire-widget-pack'); ?></option>	
+				<option value="0" <?php selected( $instance['a_avatar'], '0' ); ?>><?php _e('Disable','gabfire-widget-pack'); ?></option>
 			</select>
-		</p>	
-		
+		</p>
+
 		<p>
 			<label for="<?php echo $this->get_field_name( 'post_nr' ); ?>"><?php _e('Number of posts','gabfire-widget-pack'); ?></label>
-			<select id="<?php echo $this->get_field_id( 'post_nr' ); ?>" name="<?php echo $this->get_field_name( 'post_nr' ); ?>">			
+			<select id="<?php echo $this->get_field_id( 'post_nr' ); ?>" name="<?php echo $this->get_field_name( 'post_nr' ); ?>">
 			<?php
 				for ( $i = 0; $i <= 15; ++$i )
 				echo "<option value='$i' " . selected( $instance['post_nr'], $i, false ) . ">$i</option>";
 			?>
 			</select>
-		</p>	
-		
+		</p>
+
 		<p>
 			<label for="<?php echo $this->get_field_name( 'comment_nr' ); ?>"><?php _e('Number of Comments','gabfire-widget-pack'); ?></label>
-			<select id="<?php echo $this->get_field_id( 'comment_nr' ); ?>" name="<?php echo $this->get_field_name( 'comment_nr' ); ?>">			
+			<select id="<?php echo $this->get_field_id( 'comment_nr' ); ?>" name="<?php echo $this->get_field_name( 'comment_nr' ); ?>">
 			<?php
 				for ( $i = 0; $i <= 15; ++$i )
 				echo "<option value='$i' " . selected( $instance['comment_nr'], $i, false ) . ">$i</option>";
 			?>
 			</select>
 		</p>
-		
+
 		<p>
 			<label for="<?php echo $this->get_field_name( 'popular_nr' ); ?>"><?php _e('Number of Popular Posts','gabfire-widget-pack'); ?></label>
-			<select id="<?php echo $this->get_field_id( 'popular_nr' ); ?>" name="<?php echo $this->get_field_name( 'popular_nr' ); ?>">			
+			<select id="<?php echo $this->get_field_id( 'popular_nr' ); ?>" name="<?php echo $this->get_field_name( 'popular_nr' ); ?>">
 			<?php
 				for ( $i = 0; $i <= 15; ++$i )
 				echo "<option value='$i' " . selected( $instance['popular_nr'], $i, false ) . ">$i</option>";
