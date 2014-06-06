@@ -12,7 +12,7 @@ class gab_social extends WP_Widget {
 		$fbook_l	= $instance['fbook_l'];
 		$tweet_l	= $instance['tweet_l'];
 		$feed_l 	= $instance['feed_l'];
-		$mspace_l	= $instance['mspace_l'];
+		$instagram_l	= $instance['instagram_l'];
 		$picasa_l	= $instance['picasa_l'];
 		$flickr_l	= $instance['flickr_l'];
 		$lastfm_l	= $instance['lastfm_l'];
@@ -41,8 +41,8 @@ class gab_social extends WP_Widget {
 			if($feed_l) {
 				echo '<a target="_blank" class="feed" href="' . $feed_l . '" rel="nofollow">RSS Feed</a>';
 			}
-			if($mspace_l) {
-				echo '<a target="_blank" class="myspace" href="' . $mspace_l . '" rel="nofollow">Myspace</a>';
+			if($instagram_l) {
+				echo '<a target="_blank" class="instagram" href="' . $instagram_l . '" rel="nofollow">instagram</a>';
 			}
 			if($plus1_l) {
 				echo '<a target="_blank" class="plus1" href="' . $plus1_l . '" rel="nofollow">Google +1</a>';
@@ -91,7 +91,7 @@ class gab_social extends WP_Widget {
 		$instance['fbook_l'] = ( ! empty( $new_instance['fbook_l'] ) ) ? sanitize_text_field( $new_instance['fbook_l'] ) : '';
 		$instance['tweet_l'] = ( ! empty( $new_instance['tweet_l'] ) ) ? sanitize_text_field( $new_instance['tweet_l'] ) : '';
 		$instance['feed_l']  = ( ! empty( $new_instance['feed_l'] ) ) ? sanitize_text_field( $new_instance['feed_l'] ) : '';
-		$instance['mspace_l'] = ( ! empty( $new_instance['mspace_l'] ) ) ? sanitize_text_field( $new_instance['mspace_l'] ) : '';
+		$instance['instagram_l'] = ( ! empty( $new_instance['instagram_l'] ) ) ? sanitize_text_field( $new_instance['instagram_l'] ) : '';
 		$instance['plus1_l'] = ( ! empty( $new_instance['plus1_l'] ) ) ? sanitize_text_field( $new_instance['plus1_l'] ) : '';
 		$instance['picasa_l'] = ( ! empty( $new_instance['picasa_l'] ) ) ? sanitize_text_field( $new_instance['picasa_l'] ) : '';
 		$instance['flickr_l'] = ( ! empty( $new_instance['flickr_l'] ) ) ? sanitize_text_field( $new_instance['flickr_l'] ) : '';
@@ -113,7 +113,7 @@ class gab_social extends WP_Widget {
 			'fbook_l' => '',
 			'tweet_l' => '',
 			'feed_l' => '',
-			'mspace_l' => '',
+			'instagram_l' => '',
 			'plus1_l' => '',
 			'picasa_l' => '',
 			'flickr_l' => '',
@@ -153,8 +153,8 @@ class gab_social extends WP_Widget {
 	</p>
 				
 	<p>
-		<label for="<?php echo $this->get_field_id('mspace_l'); ?>"><?php _e('Link to Myspace account','gabfire-widget-pack'); ?></label>
-		<input class="widefat" id="<?php echo $this->get_field_id('mspace_l'); ?>" name="<?php echo $this->get_field_name('mspace_l'); ?>" type="text" value="<?php echo esc_attr($instance['mspace_l']); ?>" />
+		<label for="<?php echo $this->get_field_id('instagram_l'); ?>"><?php _e('Link to Instagram account','gabfire-widget-pack'); ?></label>
+		<input class="widefat" id="<?php echo $this->get_field_id('instagram_l'); ?>" name="<?php echo $this->get_field_name('instagram_l'); ?>" type="text" value="<?php echo esc_attr($instance['instagram_l']); ?>" />
 	</p>
 	
 	<p>
