@@ -134,6 +134,9 @@ You can install the Gabfire Widget Pack from your WordPress Dashboard or manuall
 
 == Changelog ==
 
+= 1.3.7 =
+* Minor Bug Fixes
+
 = 1.3.6 =
 * Remove Myspace, add Instagram social icon
 
