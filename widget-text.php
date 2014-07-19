@@ -21,12 +21,12 @@ class gab_text_widget extends WP_Widget {
 			if ( $title ) {
 				if ($wstyle == "small") {
 					echo $before_title;
-					echo '<span style="background: url(' . get_template_directory_uri() . '/framework/images/24x/' . $icon . '.png) no-repeat left center;padding:3px 0 3px 30px;">';
+					echo '<span style="background: url(' . plugins_url( "images/24x/$icon.png" , __FILE__ ) . ') no-repeat left center;padding:3px 0 3px 30px;">';
 						echo $title;
 					echo '</span>';
 					echo $after_title;
 				} else { 
-					echo '<div style="background: url(' . get_template_directory_uri() . '/framework/images/40x/' . $icon . '.png) no-repeat left 10px;padding:3px 0 3px 50px;">';
+					echo '<div style="background: url(' . plugins_url( "images/40x/$icon.png" , __FILE__ ) . ') no-repeat left 10px;padding:3px 0 3px 50px;">';
 					echo $before_title . $title . $after_title;
 				}
 				
