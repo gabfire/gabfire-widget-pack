@@ -93,7 +93,7 @@ Get more traffic and cross promote your posts with this social sharing widget. I
 = Widget: Text+ Widget =
 A slight twist on the original. This text widget gives you the ability to have an icon and button that links to any post or page of your choice.
 
-For more details, visit [Gabfire Themes] (http://www.gabfirethemes.com "Best WordPress Themes").
+For more details, visit [Gabfire Themes](http://www.gabfirethemes.com "Best WordPress Themes").
 
 == Installation ==
 
