@@ -3,7 +3,7 @@ Contributors: gabfire, kjbenk
 Tags: twitter, twitter feed, social icons, share post, text widget, about us, author badge, ajax tabs, Feedburner email subscribe, related posts, fickr images, search, popular entries, random entries, recent entries, gabfire themes
 Requires at least: 3.4
 Tested up to: 3.9
-Stable tag: 1.3.10
+Stable tag: 1.3.11
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -134,14 +134,17 @@ You can install the Gabfire Widget Pack from your WordPress Dashboard or manuall
 
 == Changelog ==
 
-= 1.3.9 =
+= 1.3.11 =
+* Fixes bug with created Gabfire Twitter Widget
+
+= 1.3.10 =
 * Minor Bug fixes
 
 = 1.3.9 =
 * Fixes Bug with recent tweets widget
 
 = 1.3.8 =
-* Fixes Bug with icon sizing and stabilization improvments
+* Fixes Bug with icon sizing and stabilization improvements
 
 = 1.3.7 =
 * Minor Bug Fixes
