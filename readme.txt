@@ -134,6 +134,9 @@ You can install the Gabfire Widget Pack from your WordPress Dashboard or manuall
 
 == Changelog ==
 
+= 1.3.12 =
+* Minor bug fixes
+
 = 1.3.11 =
 * Fixes bug with created Gabfire Twitter Widget
 
