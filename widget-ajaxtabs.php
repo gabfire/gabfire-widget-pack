@@ -3,8 +3,6 @@ if (!is_admin()) add_action( 'wp_print_scripts', 'gabfire_ajaxtabs_js');
 
 if (!function_exists('gabfire_ajaxtabs_js')) {
 	function gabfire_ajaxtabs_js() {
-		wp_deregister_script( 'jquery' );
-		wp_enqueue_script('jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js');
 		wp_enqueue_script('jquerytools', plugins_url() .'/gabfire-widget-pack/js/jquery.tools.min.js',array( 'jquery' ));
 	}
 }
