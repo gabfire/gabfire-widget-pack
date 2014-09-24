@@ -1,10 +1,9 @@
 <?php
-if (!is_admin()) add_action( 'wp_print_scripts', 'gabfire_ajaxtabs_js');
-
 if (!function_exists('gabfire_ajaxtabs_js')) {
 	function gabfire_ajaxtabs_js() {
 		wp_enqueue_script('jquerytools', plugins_url() .'/gabfire-widget-pack/js/jquery.tools.min.js',array( 'jquery' ));
 	}
+	add_action( 'wp_enqueue_scripts', 'gabfire_ajaxtabs_js' );
 }
 
 /* AJAX TABS */

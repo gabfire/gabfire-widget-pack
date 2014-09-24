@@ -3,7 +3,7 @@ Contributors: gabfire, kjbenk
 Tags: twitter, twitter feed, social icons, share post, text widget, about us, author badge, ajax tabs, Feedburner email subscribe, related posts, fickr images, search, popular entries, random entries, recent entries, gabfire themes
 Requires at least: 3.8
 Tested up to: 4.0
-Stable tag: 1.3.13
+Stable tag: 1.3.15
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -134,8 +134,14 @@ You can install the Gabfire Widget Pack from your WordPress Dashboard or manuall
 
 == Changelog ==
 
+= 1.3.15 =
+* Removed reference to remote jQuery file
+
+= 1.3.14 =
+* Widget Ajax Tabs JS call update
+
 = 1.3.13 =
-* Removed reference to remote jquery file.
+* Minor bug fixes
 
 = 1.3.12 =
 * Minor bug fixes

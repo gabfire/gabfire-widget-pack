@@ -4,7 +4,7 @@
 	Plugin URI: http://www.gabfirethemes.com
 	Description: This plugin adds a bundle of the most commonly used widgets to your site.
 	Author: Gabfire Themes
-	Version: 1.3.13
+	Version: 1.3.15
 	Author URI: http://www.gabfirethemes.com
 
     Copyright 2013 Gabfire Themes (email : info@gabfire.com)
@@ -19,7 +19,7 @@
     GNU General Public License for more details.
 */
 
-define( 'GABFIRE_WIDGETS_VERSION', '1.3.13');
+define( 'GABFIRE_WIDGETS_VERSION', '1.3.15');
 define( 'GABFIRE_WIDGETS_DIR', dirname(__FILE__) );
 define( 'GABFIRE_WIDGETS_URL', plugins_url().'/gabfire-widget-pack' );
 
